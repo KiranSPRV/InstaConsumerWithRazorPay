@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ParkHyderabad.EnableLocationService"
+             NavigationPage.HasNavigationBar="False">
+    <AbsoluteLayout x:Name="absLayout" VerticalOptions="FillAndExpand" BackgroundColor="#FFFFFF">
+        <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" Margin="15,10,15,10">
+            <StackLayout Margin="0,30,0,30">
+                <!--AbsoluteLayout.LayoutBounds="0,0,1,0.5"  AbsoluteLayout.LayoutFlags="All"-->
+                <StackLayout Padding="30">
+                    <Image Source="location_search.jpg" HeightRequest="200"/>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout>
+                <!--AbsoluteLayout.LayoutBounds="0,0.7,1,0.2"  AbsoluteLayout.LayoutFlags="All"-->
+                <StackLayout Spacing="25" Padding="10">
+                    <Label x:Name="oops" Text="Oops! We can't see you..." CharacterSpacing="0.5" Style="{StaticResource LblBoldExtraLargeStl}"></Label>
+                    <Label x:Name="dispalytext" Text="Your location will help us to show nearby parking stations"
+                       XAlign="Center" Margin="20,0,20,0" CharacterSpacing="0.5" Style="{StaticResource LblRegularGreyedStl}"></Label>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout><!--AbsoluteLayout.LayoutBounds="0,1,1,0.4"  AbsoluteLayout.LayoutFlags="All">-->
+            <StackLayout Padding="15,30,15,5" Spacing="10" Orientation="Vertical" VerticalOptions="CenterAndExpand">
+                <Button x:Name="TurnOn" Text="TURN ON LOCATION" Style="{StaticResource BtnSubmitStl}" Clicked="btn_TurnOnClicked"/>
+                <!--<Button x:Name="NotNow" Text="NOT NOW" BackgroundColor="#f7941d" TextColor="#FFFFFF" Style="{StaticResource BtnRegularStl}" />-->
+            </StackLayout>
+            </StackLayout>
+        </StackLayout>
+        <ContentView x:Name="StklauoutactivityIndicator" BackgroundColor="Transparent"  IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+            <StackLayout Orientation="Vertical" BackgroundColor="Transparent" HorizontalOptions="Center" VerticalOptions="Center">
+                <ActivityIndicator  x:Name="activity" IsEnabled="True" IsVisible="False" IsRunning="False" HeightRequest="80" Color="#010101" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></ActivityIndicator>
+                <Label x:Name="lblLoadingMsg" Text="Loading..."  Style="{StaticResource LblBoldBlackStl}" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand"></Label>
+            </StackLayout>
+        </ContentView>
+    </AbsoluteLayout>
+</ContentPage>

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ParkHyderabad.Notification"
+             NavigationPage.HasBackButton="True">
+    <NavigationPage.TitleView>
+        <Label Text="Notifications"  Style="{StaticResource LblBoldPageTitleStl}" Margin="0,0,70,0" />
+    </NavigationPage.TitleView>    
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#FFFFFF">
+            <AbsoluteLayout x:Name="absLayout" VerticalOptions="FillAndExpand">
+                <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+                    <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="#D4D5D9"/>
+                    <ScrollView>
+                        <ListView x:Name="lstNotification" HasUnevenRows="False" HorizontalOptions="Center" RowHeight="100" SeparatorVisibility="Default" 
+                             SeparatorColor="#D4D5D9">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <ScrollView VerticalScrollBarVisibility="Default">
+                                             <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="5" Padding="20,10,10,5" Margin="0">
+                                                <Label Text="{Binding RegistrationNumber}" Style="{StaticResource LblBoldLargeBlackLeftStl}" />
+                                                <Label Text="{Binding ActualEndTime}" Style="{StaticResource LblRegularBlackStl}" />
+                                                <Label Text="{Binding NotificationMessage}" Style="{StaticResource LblRegularBlackStl}" />
+                                            </StackLayout>
+                                        </ScrollView>
+                                       
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </ScrollView>
+                </StackLayout>
+                <ContentView x:Name="StklauoutactivityIndicator" BackgroundColor="Transparent"  IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                    <StackLayout Orientation="Vertical" BackgroundColor="Transparent" HorizontalOptions="Center" VerticalOptions="Center">
+                        <ActivityIndicator  x:Name="activity" IsEnabled="True" IsVisible="False" IsRunning="False" HeightRequest="80" Color="#010101" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></ActivityIndicator>
+                        <Label x:Name="lblLoadingMsg" Text="Loading..."  Style="{StaticResource LblBoldBlackStl}" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand"></Label>
+                    </StackLayout>
+                </ContentView>
+            </AbsoluteLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

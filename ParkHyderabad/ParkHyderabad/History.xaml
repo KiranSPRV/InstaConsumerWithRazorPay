@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ParkHyderabad.History"
+             NavigationPage.HasBackButton="True"
+             xmlns:ffSvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms">
+    <NavigationPage.TitleView>
+        <Label Text="History"  Style="{StaticResource LblBoldPageTitleStl}" Margin="0,0,70,0" />
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#1976d3" Padding="20,0,20,20">
+            <AbsoluteLayout x:Name="absLayout" VerticalOptions="FillAndExpand">
+                <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" Padding="0,10,0,0">
+                    <ScrollView>
+                        <ListView x:Name="lstLotParking" SeparatorVisibility="None" RowHeight="160" ItemSelected="lstLotParking_ItemSelected">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Frame BorderColor="#FFFFFF" BackgroundColor="#FFFFFF" Padding="0" CornerRadius="10" Margin="0,10,0,10">
+                                            <StackLayout Orientation="Horizontal" Padding="0" Margin="0" Spacing="10">
+                                                <Grid Margin="0" Padding="0">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="160"></RowDefinition>
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="6.7*"/>
+                                                        <ColumnDefinition Width="3.3*"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <StackLayout Grid.Column="0" Grid.Row="0" Orientation="Vertical" BackgroundColor="Transparent" Padding="10" Margin="0" Spacing="0">
+                                                        <StackLayout Orientation="Vertical" Spacing="0">
+                                                            <Label Text="{Binding LocationLotName}" HorizontalOptions="FillAndExpand" Style="{StaticResource lblBold16BlackStl}"/>
+                                                            <Label Text="{Binding FromAndTo}" HorizontalOptions="FillAndExpand" Style="{StaticResource LblBoldGrey12Stl}"/>
+                                                            <StackLayout Orientation="Horizontal" Spacing="5" Margin="0" Padding="0" HorizontalOptions="StartAndExpand">
+                                                                <Label Text="{Binding HistoryType}" HorizontalOptions="FillAndExpand" Style="{StaticResource lblSemiBold12BlueStl}" Padding="0"/>
+                                                                <Frame CornerRadius="15" BackgroundColor="#eeb042" IsVisible="{Binding PassFlag}" Padding="10,5,10,5" Margin="0">
+                                                                    <Label Text="PASS" FontSize="10" FontFamily="MontserratBold.ttf#MontserratBold" TextColor="#4b4c51" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
+                                                                </Frame>
+                                                                <!--<Label Text="{Binding FeeDueClampAmount}" IsVisible="{Binding DueClampSectionVisible}" FontSize="10" FontFamily="MontserratBold.ttf#MontserratBold"
+                                                                       TextColor="#4b4c51" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>-->
+
+                                                            </StackLayout>
+                                                            <StackLayout IsVisible="{Binding DueClampSectionVisible}" Orientation="Horizontal" HorizontalOptions="StartAndExpand"
+                                                                         Padding="0" Margin="0" Spacing="5">
+                                                                <Label Text="(" Style="{StaticResource lblSemiBold12BlackStl}"/>
+                                                                <Label Text="Fee" Style="{StaticResource lblSemiBold12BlackStl}"/>
+                                                                <Label Text="{Binding PaidAmount}" TextColor="#2ECC71" Style="{StaticResource lblSemiBold12BlackStl}"/>
+                                                                <Label Text="+" Style="{StaticResource lblSemiBold12BlackStl}"/>
+                                                                <Label Text="Due" Style="{StaticResource lblSemiBold12BlackStl}"/>
+                                                                <Label Text="{Binding PaidDueAmount}" TextColor="#eeb042" Style="{StaticResource lblSemiBold12BlackStl}"/>
+                                                                <Label Text="+" Style="{StaticResource lblSemiBold12BlackStl}"/>
+                                                                <Label Text="Clamp" Style="{StaticResource lblSemiBold12BlackStl}"/>
+                                                                <Label Text="{Binding ClampFee}" TextColor="#bf2c2c" Style="{StaticResource lblSemiBold12BlackStl}"/>
+                                                                <Label Text=")" Style="{StaticResource lblSemiBold12BlackStl}"/>
+                                                            </StackLayout>
+                                                            <Label Text="{Binding PassValidity}" IsVisible="{Binding PassValidityVisible}" HorizontalOptions="FillAndExpand" 
+                                                                   Style="{StaticResource LblBoldGrey12Stl}"/>
+                                                        </StackLayout>
+
+                                                    </StackLayout>
+                                                    <StackLayout Orientation="Vertical" Grid.Column="1" Grid.Row="0" Padding="5">
+                                                        <Frame CornerRadius="10" BorderColor="#eeb042" Padding="5" Margin="0" HeightRequest="110">
+                                                            <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" Padding="0" Margin="0" Spacing="0">
+                                                                <ffSvg:SvgCachedImage Margin="0" HorizontalOptions="Center" BackgroundColor="Transparent" HeightRequest="25" 
+                                                                        WidthRequest="25" Source="{Binding VehicleImage}">
+                                                                </ffSvg:SvgCachedImage>
+                                                                <Label Text="{Binding RegistrationNumber}" XAlign="Center"
+                                                                         Style="{StaticResource lblSemiBold12BlackStl}"></Label>
+                                                                <StackLayout Orientation="Vertical" Padding="0" Margin="0" Spacing="0" IsVisible="{Binding PaidSectionVisible}">
+                                                                    <Label XAlign="Center" Text="Paid" Style="{StaticResource LblBoldGrey12Stl}"></Label>
+                                                                    <Label Text="{Binding TotalAmount}" XAlign="Center" Style="{StaticResource lblBold14GreyStl}" Padding="0" TextColor="#eeb042"></Label>
+                                                                    <Label Text="{Binding PaymentTypeName}" XAlign="Center" Style="{StaticResource LblBoldVehicleNotextStl}"></Label>
+                                                                </StackLayout>
+                                                            </StackLayout>
+                                                        </Frame>
+                                                    </StackLayout>
+                                                </Grid>
+                                            </StackLayout>
+                                        </Frame>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </ScrollView>
+                </StackLayout>
+                <ContentView x:Name="StklauoutactivityIndicator" BackgroundColor="Transparent"  IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                    <StackLayout Orientation="Vertical" BackgroundColor="Transparent" HorizontalOptions="Center" VerticalOptions="Center">
+                        <ActivityIndicator  x:Name="activity" IsEnabled="True" IsVisible="False" IsRunning="False" HeightRequest="80" Color="#010101" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></ActivityIndicator>
+                        <Label x:Name="lblLoadingMsg" Text="Loading..."  Style="{StaticResource LblBoldBlackStl}" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand"></Label>
+                    </StackLayout>
+                </ContentView>
+            </AbsoluteLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

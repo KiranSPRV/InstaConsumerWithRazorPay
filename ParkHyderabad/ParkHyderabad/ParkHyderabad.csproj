@@ -1,0 +1,235 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\3w_blue.svg" />
+    <None Remove="Resources\3w_grey.svg" />
+    <None Remove="Resources\3w_white.svg" />
+    <None Remove="Resources\addressicon.svg" />
+    <None Remove="Resources\addvehicle.svg" />
+    <None Remove="Resources\bikeenable.svg" />
+    <None Remove="Resources\bikeenable1.svg" />
+    <None Remove="Resources\bikelessspots.svg" />
+    <None Remove="Resources\bikeselect.svg" />
+    <None Remove="Resources\bikeselecticon.svg" />
+    <None Remove="Resources\bikeunselect.svg" />
+    <None Remove="Resources\bikewash.svg" />
+    <None Remove="Resources\bikewashblue.svg" />
+    <None Remove="Resources\bikewashgreen.svg" />
+    <None Remove="Resources\bike_green_spots.svg" />
+    <None Remove="Resources\blue_circle_bike.svg" />
+    <None Remove="Resources\blue_circle_car.svg" />
+    <None Remove="Resources\button.svg" />
+    <None Remove="Resources\calender.svg" />
+    <None Remove="Resources\call.svg" />
+    <None Remove="Resources\carenable.svg" />
+    <None Remove="Resources\carenable01.svg" />
+    <None Remove="Resources\caronlylessspots.svg" />
+    <None Remove="Resources\carselect.svg" />
+    <None Remove="Resources\carselecticon.svg" />
+    <None Remove="Resources\carunselect.svg" />
+    <None Remove="Resources\carwash.svg" />
+    <None Remove="Resources\carwashblue.svg" />
+    <None Remove="Resources\carwashgreen.svg" />
+    <None Remove="Resources\car_green_spots.svg" />
+    <None Remove="Resources\charge.svg" />
+    <None Remove="Resources\chat.svg" />
+    <None Remove="Resources\close.svg" />
+    <None Remove="Resources\closeup.svg" />
+    <None Remove="Resources\closeup_down.svg" />
+    <None Remove="Resources\current_location_black.svg" />
+    <None Remove="Resources\current_location_blue.svg" />
+    <None Remove="Resources\current_location_darkgrey.svg" />
+    <None Remove="Resources\current_location_lightgrey.svg" />
+    <None Remove="Resources\disabledblue.svg" />
+    <None Remove="Resources\disabledparking.svg" />
+    <None Remove="Resources\disabledparkinggreen.svg" />
+    <None Remove="Resources\downarrow.svg" />
+    <None Remove="Resources\dropdown_blue.svg" />
+    <None Remove="Resources\dropdown_blue_down.svg" />
+    <None Remove="Resources\dropdown_grey.svg" />
+    <None Remove="Resources\fastag.svg" />
+    <None Remove="Resources\favoritiesicon.svg" />
+    <None Remove="Resources\favoritiesiconblue.svg" />
+    <None Remove="Resources\favoritiesiconselect.svg" />
+    <None Remove="Resources\femaleselect.svg" />
+    <None Remove="Resources\femaleunselect.svg" />
+    <None Remove="Resources\filtericon.svg" />
+    <None Remove="Resources\grey_circle_bike.svg" />
+    <None Remove="Resources\grey_circle_car.svg" />
+    <None Remove="Resources\history.svg" />
+    <None Remove="Resources\hw_blue.svg" />
+    <None Remove="Resources\hw_grey.svg" />
+    <None Remove="Resources\hw_white.svg" />
+    <None Remove="Resources\indicator1.svg" />
+    <None Remove="Resources\indicator2.svg" />
+    <None Remove="Resources\infoicon.svg" />
+    <None Remove="Resources\inrblue.svg" />
+    <None Remove="Resources\inrdarkgrey.svg" />
+    <None Remove="Resources\inrgreen.svg" />
+    <None Remove="Resources\inrgrey.svg" />
+    <None Remove="Resources\left_arrow.svg" />
+    <None Remove="Resources\location.svg" />
+    <None Remove="Resources\locationtarget.svg" />
+    <None Remove="Resources\maleselect.svg" />
+    <None Remove="Resources\maleunselect.svg" />
+    <None Remove="Resources\mechanic.svg" />
+    <None Remove="Resources\mypasses.svg" />
+    <None Remove="Resources\myvehicles.svg" />
+    <None Remove="Resources\my_vehicle_bike_blue.svg" />
+    <None Remove="Resources\my_vehicle_bike_grey.svg" />
+    <None Remove="Resources\my_vehicle_car_blue.svg" />
+    <None Remove="Resources\my_vehicle_car_grey.svg" />
+    <None Remove="Resources\notification.svg" />
+    <None Remove="Resources\offermyspace.svg" />
+    <None Remove="Resources\otherselect.svg" />
+    <None Remove="Resources\otherunselect.svg" />
+    <None Remove="Resources\petrol.svg" />
+    <None Remove="Resources\petrolblue.svg" />
+    <None Remove="Resources\petrolgreen.svg" />
+    <None Remove="Resources\searchicon.svg" />
+    <None Remove="Resources\service.svg" />
+    <None Remove="Resources\serviceblue.svg" />
+    <None Remove="Resources\servicegreen.svg" />
+    <None Remove="Resources\shareicon.svg" />
+    <None Remove="Resources\shelter.svg" />
+    <None Remove="Resources\shelterblue.svg" />
+    <None Remove="Resources\sheltergreen.svg" />
+    <None Remove="Resources\star_grey.svg" />
+    <None Remove="Resources\star_orange.svg" />
+    <None Remove="Resources\support.svg" />
+    <None Remove="Resources\tandc.svg" />
+    <None Remove="Resources\uparrow.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\3w_blue.svg" />
+    <EmbeddedResource Include="Resources\3w_grey.svg" />
+    <EmbeddedResource Include="Resources\3w_white.svg" />
+    <EmbeddedResource Include="Resources\addressicon.svg" />
+    <EmbeddedResource Include="Resources\addvehicle.svg" />
+    <EmbeddedResource Include="Resources\bikeenable.svg" />
+    <EmbeddedResource Include="Resources\bikeenable1.svg" />
+    <EmbeddedResource Include="Resources\bikelessspots.svg" />
+    <EmbeddedResource Include="Resources\bikeselect.svg" />
+    <EmbeddedResource Include="Resources\bikeselecticon.svg" />
+    <EmbeddedResource Include="Resources\bikeunselect.svg" />
+    <EmbeddedResource Include="Resources\bikewash.svg" />
+    <EmbeddedResource Include="Resources\bikewashblue.svg" />
+    <EmbeddedResource Include="Resources\bikewashgreen.svg" />
+    <EmbeddedResource Include="Resources\bike_green_spots.svg" />
+    <EmbeddedResource Include="Resources\blue_circle_bike.svg" />
+    <EmbeddedResource Include="Resources\blue_circle_car.svg" />
+    <EmbeddedResource Include="Resources\button.svg" />
+    <EmbeddedResource Include="Resources\calender.svg" />
+    <EmbeddedResource Include="Resources\call.svg" />
+    <EmbeddedResource Include="Resources\carenable.svg" />
+    <EmbeddedResource Include="Resources\carenable01.svg" />
+    <EmbeddedResource Include="Resources\caronlylessspots.svg" />
+    <EmbeddedResource Include="Resources\carselect.svg" />
+    <EmbeddedResource Include="Resources\carselecticon.svg" />
+    <EmbeddedResource Include="Resources\carunselect.svg" />
+    <EmbeddedResource Include="Resources\carwash.svg" />
+    <EmbeddedResource Include="Resources\carwashblue.svg" />
+    <EmbeddedResource Include="Resources\carwashgreen.svg" />
+    <EmbeddedResource Include="Resources\car_green_spots.svg" />
+    <EmbeddedResource Include="Resources\charge.svg" />
+    <EmbeddedResource Include="Resources\chat.svg" />
+    <EmbeddedResource Include="Resources\close.svg" />
+    <EmbeddedResource Include="Resources\closeup.svg" />
+    <EmbeddedResource Include="Resources\closeup_down.svg" />
+    <EmbeddedResource Include="Resources\current_location_black.svg" />
+    <EmbeddedResource Include="Resources\current_location_blue.svg" />
+    <EmbeddedResource Include="Resources\current_location_darkgrey.svg" />
+    <EmbeddedResource Include="Resources\current_location_lightgrey.svg" />
+    <EmbeddedResource Include="Resources\disabledblue.svg" />
+    <EmbeddedResource Include="Resources\disabledparking.svg" />
+    <EmbeddedResource Include="Resources\disabledparkinggreen.svg" />
+    <EmbeddedResource Include="Resources\downarrow.svg" />
+    <EmbeddedResource Include="Resources\dropdown_blue.svg" />
+    <EmbeddedResource Include="Resources\dropdown_blue_down.svg" />
+    <EmbeddedResource Include="Resources\dropdown_grey.svg" />
+    <EmbeddedResource Include="Resources\fastag.svg" />
+    <EmbeddedResource Include="Resources\favoritiesicon.svg" />
+    <EmbeddedResource Include="Resources\favoritiesiconblue.svg" />
+    <EmbeddedResource Include="Resources\favoritiesiconselect.svg" />
+    <EmbeddedResource Include="Resources\femaleselect.svg" />
+    <EmbeddedResource Include="Resources\femaleunselect.svg" />
+    <EmbeddedResource Include="Resources\filtericon.svg" />
+    <EmbeddedResource Include="Resources\grey_circle_bike.svg" />
+    <EmbeddedResource Include="Resources\grey_circle_car.svg" />
+    <EmbeddedResource Include="Resources\history.svg" />
+    <EmbeddedResource Include="Resources\hw_blue.svg" />
+    <EmbeddedResource Include="Resources\hw_grey.svg" />
+    <EmbeddedResource Include="Resources\hw_white.svg" />
+    <EmbeddedResource Include="Resources\indicator1.svg" />
+    <EmbeddedResource Include="Resources\indicator2.svg" />
+    <EmbeddedResource Include="Resources\infoicon.svg" />
+    <EmbeddedResource Include="Resources\inrblue.svg" />
+    <EmbeddedResource Include="Resources\inrdarkgrey.svg" />
+    <EmbeddedResource Include="Resources\inrgreen.svg" />
+    <EmbeddedResource Include="Resources\inrgrey.svg" />
+    <EmbeddedResource Include="Resources\left_arrow.svg" />
+    <EmbeddedResource Include="Resources\location.svg" />
+    <EmbeddedResource Include="Resources\locationtarget.svg" />
+    <EmbeddedResource Include="Resources\maleselect.svg" />
+    <EmbeddedResource Include="Resources\maleunselect.svg" />
+    <EmbeddedResource Include="Resources\mechanic.svg" />
+    <EmbeddedResource Include="Resources\mypasses.svg" />
+    <EmbeddedResource Include="Resources\myvehicles.svg" />
+    <EmbeddedResource Include="Resources\my_vehicle_bike_blue.svg" />
+    <EmbeddedResource Include="Resources\my_vehicle_bike_grey.svg" />
+    <EmbeddedResource Include="Resources\my_vehicle_car_blue.svg" />
+    <EmbeddedResource Include="Resources\my_vehicle_car_grey.svg" />
+    <EmbeddedResource Include="Resources\notification.svg" />
+    <EmbeddedResource Include="Resources\offermyspace.svg" />
+    <EmbeddedResource Include="Resources\otherselect.svg" />
+    <EmbeddedResource Include="Resources\otherunselect.svg" />
+    <EmbeddedResource Include="Resources\petrol.svg" />
+    <EmbeddedResource Include="Resources\petrolblue.svg" />
+    <EmbeddedResource Include="Resources\petrolgreen.svg" />
+    <EmbeddedResource Include="Resources\searchicon.svg" />
+    <EmbeddedResource Include="Resources\service.svg" />
+    <EmbeddedResource Include="Resources\serviceblue.svg" />
+    <EmbeddedResource Include="Resources\servicegreen.svg" />
+    <EmbeddedResource Include="Resources\shareicon.svg" />
+    <EmbeddedResource Include="Resources\shelter.svg" />
+    <EmbeddedResource Include="Resources\shelterblue.svg" />
+    <EmbeddedResource Include="Resources\sheltergreen.svg" />
+    <EmbeddedResource Include="Resources\star_grey.svg" />
+    <EmbeddedResource Include="Resources\star_orange.svg" />
+    <EmbeddedResource Include="Resources\support.svg" />
+    <EmbeddedResource Include="Resources\tandc.svg" />
+    <EmbeddedResource Include="Resources\uparrow.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CarouselView.FormsPlugin" Version="5.2.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Plugin.FirebasePushNotification" Version="3.3.10" />
+    <PackageReference Include="Plugin.Permissions" Version="6.0.1" />
+    <PackageReference Include="Xam.Plugin.Connectivity" Version="3.2.0" />
+    <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
+    <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.0.0.5" />
+    <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Svg" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.1931" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
+    <PackageReference Include="Xamarin.Forms.GoogleMaps" Version="3.3.0" />
+    <PackageReference Include="Xamarin.Forms.GoogleMaps.Clustering" Version="1.1.0" />
+    <PackageReference Include="Xamarin.Forms.Maps" Version="4.7.0.1142" />
+    <PackageReference Include="Xamarin.Forms.Visual.Material" Version="5.0.0.1931" />
+  </ItemGroup>
+</Project>

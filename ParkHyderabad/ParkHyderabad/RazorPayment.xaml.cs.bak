@@ -1,0 +1,307 @@
+﻿using ParkHyderabad.DAL;
+using ParkHyderabad.Model.APIInputModel;
+using ParkHyderabad.Model.APIOutPutModel;
+using ParkHyderabad.Model.APIResponse;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+
+namespace ParkHyderabad
+{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class RazorPayment : ContentPage 
+    {
+        string UserName = string.Empty;
+        string Email = string.Empty;
+        string PhoneNumber = string.Empty;
+        static CustomerParkingSlot obj_CustomerParkingSlot;
+        static CustomerVehiclePass obj_CustomerVehiclePass;
+        DALCustomer dal_Customer;
+        DALPass dal_Pass;
+        string transactionID = string.Empty;
+        public RazorPayment(CustomerParkingSlot customerParkingSlot, CustomerVehiclePass customerVehiclePass)
+        {
+            InitializeComponent();
+            dal_Customer = new DALCustomer();
+            dal_Pass = new DALPass();
+            obj_CustomerParkingSlot = customerParkingSlot;
+            obj_CustomerVehiclePass = customerVehiclePass;
+
+            if (App.Current.Properties.ContainsKey("UserName"))
+            {
+                UserName = Convert.ToString(App.Current.Properties["UserName"]);
+            }
+            if (App.Current.Properties.ContainsKey("Email"))
+            {
+                Email = Convert.ToString(App.Current.Properties["Email"]);
+            }
+            if (App.Current.Properties.ContainsKey("PhoneNumber"))
+            {
+                PhoneNumber = Convert.ToString(App.Current.Properties["PhoneNumber"]);
+            }
+
+            if (obj_CustomerParkingSlot != null && obj_CustomerVehiclePass == null)
+            {
+                string Source = "http://35.202.198.25:81/RazorPayAPI/Payment.aspx?" +
+               "name=" + UserName + "" +
+               "&email=" + Email +
+               "&contact=" + PhoneNumber + "" +
+               "&description=" + Convert.ToString(obj_CustomerParkingSlot.LocationParkingLotName) +
+               "&amount=" + Convert.ToString(obj_CustomerParkingSlot.PaidAmount) +
+               "&receiptID=" + 0 + "";
+
+                CookieContainer cookieContainer = new CookieContainer();
+                Uri uri = new Uri(Source, UriKind.RelativeOrAbsolute);
+
+                Cookie cookie = new Cookie
+                {
+                    Name = "CustomerID",
+                    Expires = DateTime.Now.AddDays(1),
+                    Value = Convert.ToString(obj_CustomerParkingSlot.CustomerID),
+                    Domain = uri.Host,
+                    Path = "/"
+                };
+                cookieContainer.Add(uri, cookie);
+                webView.Cookies = cookieContainer;
+                webView.Source = new UrlWebViewSource { Url = uri.ToString() };
+            }
+            else if (obj_CustomerParkingSlot == null && obj_CustomerVehiclePass != null)
+            {
+
+                string Source = "http://35.202.198.25:81/RazorPayAPI/Payment.aspx?" +
+               "name=" + UserName + "" +
+               "&email=" + Email +
+               "&contact=" + PhoneNumber + "" +
+               "&description=" + Convert.ToString(obj_CustomerVehiclePass.StationAccess) +
+               "&amount=" + Convert.ToString(obj_CustomerVehiclePass.TotalAmount + obj_CustomerVehiclePass.PaidDueAmount) +
+               "&receiptID=" + 0 + "";
+
+                CookieContainer cookieContainer = new CookieContainer();
+                Uri uri = new Uri(Source, UriKind.RelativeOrAbsolute);
+
+                Cookie cookie = new Cookie
+                {
+                    Name = "CustomerID",
+                    Expires = DateTime.Now.AddDays(1),
+                    Value = Convert.ToString(obj_CustomerVehiclePass.CustomerID),
+                    Domain = uri.Host,
+                    Path = "/"
+                };
+                cookieContainer.Add(uri, cookie);
+                webView.Cookies = cookieContainer;
+                webView.Source = new UrlWebViewSource { Url = uri.ToString() };
+            }
+        }
+        protected async override void OnAppearing()
+        {
+            base.OnAppearing();
+            await progress.ProgressTo(0.9, 900, Easing.SpringIn);
+        }
+        protected async void OnNavigating(object sender, WebNavigatingEventArgs e)
+        {
+            try
+            {
+                progress.IsVisible = true;
+            }
+            catch (Exception ex)
+            {
+                DisplayAlert("Failed - RazorPay", Convert.ToString(ex.Message), "Ok");
+            }
+        }
+        protected async void OnNavigated(object sender, WebNavigatedEventArgs e)
+        {
+            progress.IsVisible = false;
+
+            try
+            {
+                if (e.Url.StartsWith("http://35.202.198.25:81/RazorPayAPI/Charge.aspx"))
+                {
+                    await GetTransaction();
+
+                    using (HttpClient client = new HttpClient())
+                    {
+                        client.BaseAddress = new Uri(Convert.ToString(App.Current.Properties["BaseURL"]));
+                        // We want the response to be JSON.
+                        client.DefaultRequestHeaders.Accept.Clear();
+                        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                        List<System.Collections.Generic.KeyValuePair<string, string>> postData = new List<KeyValuePair<string, string>>();
+                        postData.Add(new KeyValuePair<string, string>("grant_type", "password"));
+                        postData.Add(new KeyValuePair<string, string>("username", "Kiran"));
+                        postData.Add(new KeyValuePair<string, string>("password", "1234"));
+                        FormUrlEncodedContent content = new FormUrlEncodedContent(postData);
+                        // Post to the Server and parse the response.
+                        var response = client.PostAsync("Token", content).Result;
+                        if (response.IsSuccessStatusCode)
+                        {
+                            var jsonString = response.Content.ReadAsStringAsync();
+                            OAuthToken responseData = JsonConvert.DeserializeObject<OAuthToken>(jsonString.Result);
+                            string Access_Token = responseData.access_token;
+                            App.Current.Properties["apitoken"] = Access_Token;
+                        }
+                    }
+
+                    if (App.Current.Properties.ContainsKey("apitoken"))
+                    {
+                        if (obj_CustomerParkingSlot != null && obj_CustomerVehiclePass == null)
+                        {
+                            if (obj_CustomerParkingSlot.LocationName != null && obj_CustomerParkingSlot.LocationName != "")
+                            {
+                                if (obj_CustomerParkingSlot.LocationName.ToUpper() == "CHECKOUT")
+                                {
+                                    if (transactionID == "")
+                                    {
+                                        DisplayAlert("", "Payment Failed", "Ok");
+                                        App.Current.Properties["CustomerParkingSlotID"] = Convert.ToString(obj_CustomerParkingSlot.CustomerParkingSlotID);
+                                        App.Current.Properties["CustomerID"] = Convert.ToString(obj_CustomerParkingSlot.CustomerID);
+                                        return;
+                                    }
+
+                                    obj_CustomerParkingSlot.TransactionID = transactionID;
+                                    var json = JsonConvert.SerializeObject(obj_CustomerParkingSlot);
+                                    var content = new StringContent(json, Encoding.UTF8, "application/json");
+                                    CustomerParkingSlotDetails resultObj = dal_Customer.UpdateCheckOut(Convert.ToString(App.Current.Properties["apitoken"]), obj_CustomerParkingSlot);
+
+                                    if (resultObj.CustomerParkingSlotID != 0)
+                                    {
+                                        App.Current.Properties["CustomerParkingSlotID"] = "0";
+                                        App.Current.Properties["CustomerID"] = obj_CustomerParkingSlot.CustomerID;
+                                        Application.Current.SavePropertiesAsync();
+                                        DisplayAlert("", "Thank you for parking with us!", "Ok");
+                                        int CustomerID = 0;
+                                        if (App.Current.Properties.ContainsKey("CustomerID"))
+                                        {
+                                            CustomerID = Convert.ToInt32(App.Current.Properties["CustomerID"]);
+                                        }
+
+                                        await Navigation.PushAsync(new Home(null, CustomerID));
+                                    }
+                                    else
+                                    {
+                                        DisplayAlert("", "Insert Payment Failed", "Ok");
+                                        App.Current.Properties["CustomerID"] = obj_CustomerParkingSlot.CustomerID;
+                                        await Application.Current.SavePropertiesAsync();
+                                    }
+                                }
+                                else
+                                {
+                                    if (transactionID == "")
+                                    {
+                                        DisplayAlert("", "Payment Failed", "Ok");
+                                        App.Current.Properties["CustomerParkingSlotID"] = Convert.ToString(obj_CustomerParkingSlot.CustomerParkingSlotID);
+                                        App.Current.Properties["CustomerID"] = Convert.ToString(obj_CustomerParkingSlot.CustomerID);
+                                        return;
+                                    }
+
+                                    obj_CustomerParkingSlot.TransactionID = transactionID;
+                                    var json = JsonConvert.SerializeObject(obj_CustomerParkingSlot);
+                                    var content = new StringContent(json, Encoding.UTF8, "application/json");
+                                    CustomerParkingSlotDetails resultObj = dal_Customer.InsertCustomerParkingSlot(Convert.ToString(App.Current.Properties["apitoken"]), obj_CustomerParkingSlot);
+
+                                    if (resultObj.CustomerParkingSlotID != 0)
+                                    {
+                                        App.Current.Properties["CustomerParkingSlotID"] = Convert.ToString(resultObj.CustomerParkingSlotID);
+                                        App.Current.Properties["CustomerID"] = Convert.ToString(obj_CustomerParkingSlot.CustomerID);
+                                        await Application.Current.SavePropertiesAsync();
+                                        await Navigation.PushAsync(new SessionHomeReceipt(resultObj));
+                                    }
+                                    else
+                                    {
+                                        DisplayAlert("", "Insert Payment Failed", "Ok");
+                                        App.Current.Properties["CustomerID"] = obj_CustomerParkingSlot.CustomerID;
+                                        await Application.Current.SavePropertiesAsync();
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                if (transactionID == "")
+                                {
+                                    DisplayAlert("", "Payment Failed", "Ok");
+                                    App.Current.Properties["CustomerParkingSlotID"] = Convert.ToString(obj_CustomerParkingSlot.CustomerParkingSlotID);
+                                    App.Current.Properties["CustomerID"] = Convert.ToString(obj_CustomerParkingSlot.CustomerID);
+                                    return;
+                                }
+
+                                obj_CustomerParkingSlot.TransactionID = transactionID;
+                                var json = JsonConvert.SerializeObject(obj_CustomerParkingSlot);
+                                var content = new StringContent(json, Encoding.UTF8, "application/json");
+                                CustomerParkingSlotDetails resultObj = dal_Customer.InsertCustomerParkingSlot(Convert.ToString(App.Current.Properties["apitoken"]), obj_CustomerParkingSlot);
+
+                                if (resultObj.CustomerParkingSlotID != 0)
+                                {
+                                    App.Current.Properties["CustomerParkingSlotID"] = Convert.ToString(resultObj.CustomerParkingSlotID);
+                                    App.Current.Properties["CustomerID"] = obj_CustomerParkingSlot.CustomerID;
+                                    await Application.Current.SavePropertiesAsync();
+                                    await Navigation.PushAsync(new SessionHomeReceipt(resultObj));
+                                }
+                                else
+                                {
+                                    DisplayAlert("", "Insert Payment Failed", "Ok");
+                                    App.Current.Properties["CustomerID"] = obj_CustomerParkingSlot.CustomerID;
+                                    await Application.Current.SavePropertiesAsync();
+                                }
+                            }
+                        }
+                        else if (obj_CustomerParkingSlot == null && obj_CustomerVehiclePass != null)
+                        {
+                            if (transactionID == "")
+                            {
+                                DisplayAlert("", "Payment Failed", "Ok");
+                                App.Current.Properties["CustomerID"] = Convert.ToString(obj_CustomerVehiclePass.CustomerID);
+                                return;
+                            }
+
+                            obj_CustomerVehiclePass.TransactionID = transactionID;
+                            var json = JsonConvert.SerializeObject(obj_CustomerVehiclePass);
+                            var content = new StringContent(json, Encoding.UTF8, "application/json");
+                            OCustomerVehiclePass resultObj;
+
+                            if (obj_CustomerVehiclePass.IsMultiLot)
+                            {
+                                resultObj = dal_Pass.InsertMultiStationCustomerVehiclePass(Convert.ToString(App.Current.Properties["apitoken"]), obj_CustomerVehiclePass);
+                            }
+                            else
+                            {
+                                resultObj = dal_Pass.InsertCustomerVehiclePass(Convert.ToString(App.Current.Properties["apitoken"]), obj_CustomerVehiclePass);
+                            }
+
+                            if (resultObj.CustomerVehiclePassID != 0)
+                            {
+                                App.Current.Properties["CustomerID"] = obj_CustomerVehiclePass.CustomerID;
+                                await Navigation.PushAsync(new PassReceipt(resultObj));
+                            }
+                            else
+                            {
+                                DisplayAlert("", "Insert Payment Failed", "Ok");
+                                App.Current.Properties["CustomerID"] = obj_CustomerVehiclePass.CustomerID;
+                                await Application.Current.SavePropertiesAsync();
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                DisplayAlert("Failed - RazorPay", Convert.ToString(ex.Message), "Ok");
+            }
+        }
+        public async Task GetTransaction()
+        {
+            try
+            {
+                transactionID = await webView.EvaluateJavaScriptAsync($"document.getElementById('hdnPaymentID').value;");
+            }
+            catch (Exception ex)
+            {
+                transactionID = "";
+            }
+        }
+    }
+}

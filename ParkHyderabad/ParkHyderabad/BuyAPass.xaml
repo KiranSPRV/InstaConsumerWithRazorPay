@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ParkHyderabad.BuyAPass"
+             xmlns:local="clr-namespace:ParkHyderabad.CustomXamarinElementsModel"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"  
+             xmlns:ffSvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"               
+             xmlns:ffTrans="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             xmlns:controls="clr-namespace:ParkHyderabad.Helper" 
+             xmlns:control="clr-namespace:ParkHyderabad.Controls" 
+             NavigationPage.HasBackButton="True">
+    <NavigationPage.TitleView BackgroundColor="#1976d3">
+        <Label Text="Buy A Pass" Style="{StaticResource LblBoldPageTitleStl}" />
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#1976d3" Padding="0" Margin="0" Spacing="0">
+            <AbsoluteLayout BackgroundColor="#1976d3" x:Name="absLayout" VerticalOptions="FillAndExpand" Padding="0" Margin="0">
+                <Frame CornerRadius="10" Margin="20,20,20,20" BackgroundColor="#FFFFFF" HorizontalOptions="FillAndExpand" 
+                        Padding="0" AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All">
+                    <ScrollView Orientation="Vertical" VerticalScrollBarVisibility="Always" Margin="0" Padding="0">
+                        <StackLayout Orientation="Vertical" Margin="0" Padding="0,25,0,5" Spacing="10">
+                            <StackLayout x:Name="stkSingleStation" Padding="20,0,20,0" Margin="0" Orientation="Vertical" Spacing="10">
+                                <Label Text="Select Location" Style="{StaticResource lblSemiBold12GreyStl}" />
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                    <Frame HasShadow="False" Padding="5,0,0,0" Margin="0" BorderColor="#D4D5D9" CornerRadius="20"
+                                        HorizontalOptions="FillAndExpand">
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="0" Padding="0" Margin="0">
+                                            <StackLayout HorizontalOptions="FillAndExpand" Spacing="0">
+                                                <control:CustomPicker x:Name="pkLocation" ItemDisplayBinding="{Binding LocationName}" Style="{StaticResource PickerRegularStl}"
+                                                     SelectedIndexChanged="OnLocPkrSelectedIndexChanged">
+                                                </control:CustomPicker>
+                                            </StackLayout>
+                                            <ffSvg:SvgCachedImage Margin="0" BackgroundColor="Transparent" HeightRequest="40" WidthRequest="40" HorizontalOptions="End"
+                                                Source="resource://ParkHyderabad.Resources.closeup_down.svg">
+                                            </ffSvg:SvgCachedImage>
+                                        </StackLayout>
+                                    </Frame>
+                                </StackLayout>
+                            </StackLayout>
+                            <StackLayout x:Name="stkAllStation" Padding="20,0,20,0" Margin="0" IsVisible="False">
+                                <Label Text="Select Location" Style="{StaticResource lblSemiBold12GreyStl}" />
+                                <Frame HasShadow="False" CornerRadius="50" BackgroundColor="#1976d3" Padding="5" Margin="0,5,0,1">
+                                    <StackLayout Padding="4" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                        <Label Text="All Stations" HorizontalOptions="CenterAndExpand" Style="{StaticResource lblSemiBold16WhiteStl}"></Label>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                            <StackLayout x:Name="stkMultiStation" IsVisible="False" Padding="20,0,20,0" Margin="0">
+                                <Label Text="Select Location" Style="{StaticResource lblSemiBold12GreyStl}" />
+                                <controls:CustomFrame CornerRadius="0,0,5,5" Padding="0" HasShadow="True" BorderColor="Transparent" BackgroundColor="Transparent">
+                                    <StackLayout Padding="10" Spacing="10">
+                                        <Frame CornerRadius="5" Padding="0" BackgroundColor="#fdfdfd" BorderColor="#fdfdfd">
+                                            <StackLayout Spacing="0" BackgroundColor="#FFFFFF">
+                                                <Frame CornerRadius="25" Padding="20,10,5,10" BorderColor="#fdfdfd" HorizontalOptions="FillAndExpand">
+                                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="0" Padding="0" Margin="0">
+                                                        <StackLayout HorizontalOptions="FillAndExpand" Spacing="0">
+                                                            <Label Text="Please select any 3 stations" Style="{StaticResource lblSemiBold12GreyStl}" VerticalOptions="CenterAndExpand"></Label>
+                                                        </StackLayout>
+                                                        <ffSvg:SvgCachedImage Margin="0,0,15,0" BackgroundColor="Transparent" HeightRequest="15" WidthRequest="15"
+                                                          HorizontalOptions="End" Source="resource://ParkHyderabad.Resources.dropdown_blue_down.svg">
+                                                        </ffSvg:SvgCachedImage>
+                                                    </StackLayout>
+                                                </Frame>
+                                                <ListView x:Name="lstStations" Margin="5,5,0,0" RowHeight="30" SeparatorVisibility="None" HeightRequest="180">
+                                                    <ListView.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <ViewCell>
+                                                                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" VerticalOptions="Center">
+                                                                    <CheckBox Color="#a3a3a3" IsChecked="{Binding IsChecked}" BindingContext="{Binding .}" CheckedChanged="CheckBox_CheckedChanged"/>
+                                                                    <Label Text="{Binding LocationName}" Style="{StaticResource lblSemiBold14GreyStl}" VerticalOptions="CenterAndExpand"/>
+                                                                </StackLayout>
+                                                            </ViewCell>
+                                                        </DataTemplate>
+                                                    </ListView.ItemTemplate>
+                                                </ListView>
+                                            </StackLayout>
+                                        </Frame>
+                                    </StackLayout>
+                                </controls:CustomFrame>
+                            </StackLayout>
+                            <Label IsVisible="False" CharacterSpacing="0.5" Padding="0" Margin="0" LineHeight="1" x:Name="lblSelectedStations" XAlign="Center" Style="{StaticResource lblSemiBold12GreyStl}" LineBreakMode="WordWrap"></Label>
+                            <StackLayout Orientation="Vertical" Spacing="5" Padding="20,0,20,0" Margin="0">
+                                <StackLayout Orientation="Horizontal">
+                                    <Grid HorizontalOptions="FillAndExpand">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="5*"/>
+                                            <ColumnDefinition Width="5*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label VerticalOptions="Center" HorizontalOptions="StartAndExpand" Grid.Row="0" Grid.Column="0" Text="Select Vehicle" Style="{StaticResource lblSemiBold12GreyStl}" />
+                                        <Frame HorizontalOptions="End" VerticalOptions="End" Grid.Row="0" Grid.Column="1" HasShadow="False" Padding="5" Margin="0" BorderColor="#D4D5D9" CornerRadius="10">
+                                            <StackLayout Orientation="Horizontal" Padding="0" Margin="0">
+                                                <StackLayout.GestureRecognizers>
+                                                    <TapGestureRecognizer x:Name="stkSlotDetails" Tapped="stk_AddVehicleTapped"/>
+                                                </StackLayout.GestureRecognizers>
+                                                <ffSvg:SvgCachedImage Margin="0" BackgroundColor="Transparent" HeightRequest="30" WidthRequest="30" VerticalOptions="Center"
+                                                    Source="resource://ParkHyderabad.Resources.addvehicle.svg">
+                                                </ffSvg:SvgCachedImage>
+                                                <Label VerticalOptions="Center" Text="Add Vehicle" Style="{StaticResource lblSemiBold12BlackStl}" />
+                                            </StackLayout>
+                                        </Frame>
+                                    </Grid>
+                                </StackLayout>
+                                <CollectionView x:Name="cvRegistrationNumber" HorizontalScrollBarVisibility="Always" Margin="0,10,0,10" HeightRequest="35">
+                                    <CollectionView.ItemsLayout>
+                                        <GridItemsLayout Orientation="Horizontal" HorizontalItemSpacing="10"/>
+                                    </CollectionView.ItemsLayout>
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackLayout Orientation="Horizontal" Spacing="5" Padding="0" Margin="0">
+                                                <RadioButton CheckedChanged="rbRegistrationNumber"  Value="{Binding CustomerVehicleID}" GroupName="Vehicle"></RadioButton>
+                                                <ffSvg:SvgCachedImage BackgroundColor="Transparent" HeightRequest="20" WidthRequest="20" VerticalOptions="Center"
+                                                                Source="{Binding VehicleImage}"/>
+                                                <StackLayout Orientation="Vertical" VerticalOptions="Center" Spacing="0">
+                                                    <Label Text="{Binding Model}" Style="{StaticResource lblSemiBold12BlackStl}"/>
+                                                    <Label Text="{Binding RegistrationNumber}" Style="{StaticResource lblSemiBold12GreyStl}"/>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
+                            </StackLayout>
+                            <StackLayout Orientation="Vertical" Spacing="10" Padding="0" Margin="0">
+                                <Label Text="Select Pass Preference" Padding="20,0,20,0" Margin="0" Style="{StaticResource lblSemiBold12GreyStl}" />
+                                <StackLayout Padding="5" Margin="0" Spacing="10" >
+                                    <CollectionView x:Name="colView" Margin="0" HorizontalScrollBarVisibility="Always" HeightRequest="270" MinimumHeightRequest="150"
+                                        VerticalScrollBarVisibility="Always" ItemsLayout="VerticalGrid, 3"
+                                        SelectionMode="Single" SelectionChanged="colView_SelectionChanged">
+                                        <CollectionView.ItemTemplate>
+                                            <DataTemplate>
+                                                <Grid Padding="5" Margin="0">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="Auto"/>
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <StackLayout Spacing="0" Padding="0" Margin="0">
+                                                        <Label IsVisible="False" Text="{Binding PassIndex}"/>
+                                                        <controls:CustomFrame BorderColor="{Binding PassBordorColour}" CornerRadius="10,10,0,0" HasShadow="True" Padding="0,20,0,20">
+                                                            <StackLayout Orientation="Vertical" VerticalOptions="Center" Padding="0" Margin="0" Spacing="0">
+                                                                <Label XAlign="Center" TextColor="{Binding PassBordorColour}" Text="{Binding PassTypeName}" Style="{StaticResource lblBold16BlueStl}"></Label>
+                                                                <!--<Label XAlign="Center" Text="Pass" Style="{StaticResource lblRegular14GreyStl}"></Label>-->
+                                                            </StackLayout>
+                                                        </controls:CustomFrame>
+                                                        <controls:CustomFrame BorderColor="{Binding PassBordorColour}" BackgroundColor="{Binding PassBackgroundColour}" 
+                                                            CornerRadius="0,0,10,10" HasShadow="True" Padding="3" Margin="0">
+                                                            <StackLayout Orientation="Vertical" Padding="0" Margin="0" Spacing="0">
+                                                                <Label Text="{Binding StationAccess}" Style="{StaticResource lblRegular12GreyStl}" 
+                                                              TextColor="{Binding PassTextColour}" VerticalOptions="Center" HorizontalOptions="Center"></Label>
+                                                                <Label Text="{Binding PriceDisplay}" Style="{StaticResource lblBold16GreyStl}" 
+                                                              TextColor="{Binding PassTextColour}" VerticalOptions="Center" HorizontalOptions="Center"></Label>
+                                                            </StackLayout>
+                                                        </controls:CustomFrame>
+                                                    </StackLayout>
+                                                </Grid>
+                                            </DataTemplate>
+                                        </CollectionView.ItemTemplate>
+                                    </CollectionView>
+                                    <StackLayout x:Name="stkDueAmount" IsVisible="False" Orientation="Vertical" Spacing="15" Padding="0" Margin="0">
+                                        <Label Text="Due Amount On Your Vehicle" Style="{StaticResource lblSemiBold12WhiteStl}" 
+                                                              TextColor="#bf2c2c"></Label>
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="5" Padding="0" Margin="0">
+                                            <controls:CustomFrame BorderColor="#DCDCDC" BackgroundColor="#FFFFFF"
+                                                 CornerRadius="10" HasShadow="False" Padding="15,10,15,10" Margin="0">
+                                                <StackLayout Orientation="Vertical" Padding="0" Margin="0" Spacing="0">
+                                                    <Label x:Name="lblPass" XAlign="Center" Style="{StaticResource lblBold14GreyStl}" 
+                                                              TextColor="#4b4c51"></Label>
+                                                    <Label XAlign="Center" Text="Pass" Style="{StaticResource lblSemiBold12GreyStl}"></Label>
+                                                </StackLayout>
+                                            </controls:CustomFrame>
+                                            <Label VerticalOptions="Center" Text="+" Style="{StaticResource lblBold14BlackStl}"/>
+                                            <controls:CustomFrame BorderColor="#DCDCDC" BackgroundColor="#FFFFFF"
+                                                 CornerRadius="10" HasShadow="False" Padding="15,10,15,10" Margin="0">
+                                                <StackLayout Orientation="Vertical" Padding="0" Margin="0" Spacing="0">
+                                                    <StackLayout.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="OpenPopup"/>
+                                                    </StackLayout.GestureRecognizers>
+                                                    <Label x:Name="lblDue" XAlign="Center" Style="{StaticResource lblBold14GreyStl}" 
+                                                              TextColor="#bf2c2c"></Label>
+                                                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Padding="0" Margin="0" Spacing="2">
+                                                        <ffSvg:SvgCachedImage Margin="0" BackgroundColor="Transparent" HeightRequest="10" WidthRequest="10" 
+                                                        Source="resource://ParkHyderabad.Resources.infoicon.svg">
+                                                        </ffSvg:SvgCachedImage>
+                                                        <Label XAlign="Center" Text="Due" Style="{StaticResource lblSemiBold12GreyStl}" VerticalOptions="Center"></Label>
+                                                    </StackLayout>
+                                                </StackLayout>
+                                            </controls:CustomFrame>
+                                            <Label VerticalOptions="Center" Text="=" Style="{StaticResource lblBold14BlackStl}"/>
+                                            <controls:CustomFrame BorderColor="#DCDCDC" BackgroundColor="#1976d3"
+                                                 CornerRadius="10" HasShadow="False" Padding="15,10,15,10" Margin="0">
+                                                <StackLayout Orientation="Vertical" Padding="0" Margin="0" Spacing="0">
+                                                    <Label x:Name="lblTotal" XAlign="Center" Style="{StaticResource lblBold14GreyStl}" 
+                                                              TextColor="#FFFFFF"></Label>
+                                                    <Label XAlign="Center" Text="Total" TextColor="#FFFFFF" Style="{StaticResource lblSemiBold12GreyStl}"></Label>
+                                                </StackLayout>
+                                            </controls:CustomFrame>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </StackLayout>
+                                <StackLayout IsVisible="True" Spacing="10" Padding="20,0,20,10" Margin="0">
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer x:Name="stkAboutPasses" Tapped="stk_AboutPassesClicked"/>
+                                        </StackLayout.GestureRecognizers>
+                                        <ffSvg:SvgCachedImage Margin="0,0,0,0" BackgroundColor="Transparent" HeightRequest="15" WidthRequest="15" VerticalOptions="Center"
+                                        Source="resource://ParkHyderabad.Resources.infoicon.svg">
+                                        </ffSvg:SvgCachedImage>
+                                        <Label VerticalOptions="Center" Text="More about passes" TextColor="#1976d3" Style="{StaticResource lblSemiBold12BlackStl}" />
+                                    </StackLayout>
+                                    <BoxView Color="#D4D5D9" HeightRequest="1" Margin="0"></BoxView>
+                                    <Button x:Name="btnGeneratePass" Text="Generate a pass" Style="{StaticResource btnBlueStl}" 
+                                   Clicked="btn_GeneratePassClicked" HorizontalOptions="FillAndExpand" VerticalOptions="Center" />
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </ScrollView>
+                </Frame>
+                <RelativeLayout AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.50,0,100,50">
+                    <Frame HasShadow="True" CornerRadius="30" BorderColor="#f4f4f4" Padding="5" Margin="0">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" BackgroundColor="Transparent" Padding="0" Margin="0" Spacing="5">
+                            <ffSvg:SvgCachedImage x:Name="svgTwo" Margin="0" BackgroundColor="Transparent" HeightRequest="35" WidthRequest="35" VerticalOptions="Center"
+                                        Source="resource://ParkHyderabad.Resources.blue_circle_bike.svg">
+                                <ffSvg:SvgCachedImage.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TwoWheeler_Tapped"></TapGestureRecognizer>
+                                </ffSvg:SvgCachedImage.GestureRecognizers>
+                            </ffSvg:SvgCachedImage>
+                            <ffSvg:SvgCachedImage x:Name="svgFour" Margin="0" BackgroundColor="Transparent" HeightRequest="35" WidthRequest="35" VerticalOptions="Center"
+                                        Source="resource://ParkHyderabad.Resources.grey_circle_car.svg">
+                                <ffSvg:SvgCachedImage.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="FourWheeler_Tapped"></TapGestureRecognizer>
+                                </ffSvg:SvgCachedImage.GestureRecognizers>
+                            </ffSvg:SvgCachedImage>
+                        </StackLayout>
+                    </Frame>
+                </RelativeLayout>
+                <ContentView x:Name="StklauoutactivityIndicator" BackgroundColor="Transparent"  IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                    <StackLayout Orientation="Vertical" BackgroundColor="Transparent" HorizontalOptions="Center" VerticalOptions="Center">
+                        <ActivityIndicator  x:Name="activity" IsEnabled="True" IsVisible="False" IsRunning="False" HeightRequest="80" Color="#010101" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></ActivityIndicator>
+                        <Label x:Name="lblLoadingMsg" Text="Loading..."  Style="{StaticResource LblBoldBlackStl}" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand"></Label>
+                    </StackLayout>
+                </ContentView>
+                <!--PopUp Start-->
+                <ContentView x:Name="popupDueView" BackgroundColor="#C0808080" Padding="10, 50"
+                         AbsoluteLayout.LayoutBounds="1, 1, 1, 1" AbsoluteLayout.LayoutFlags="All" IsVisible="false">
+                    <StackLayout VerticalOptions="Fill" HorizontalOptions="Fill" Padding="30,30,30,0">
+                        <Frame CornerRadius="10" Padding="10">
+                            <StackLayout Orientation="Vertical" HeightRequest="250"  WidthRequest="350" BackgroundColor="White" Padding="5">
+                                <StackLayout Orientation="Horizontal" Padding="5" Spacing="20">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="7*"/>
+                                            <ColumnDefinition Width="3*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Row="0" Grid.Column="0" x:Name="lblDueRegNum" VerticalOptions="Center" Style="{StaticResource lblBold14BlackStl}"></Label>
+                                        <Button Grid.Row="0" Grid.Column="1" Text="DONE" HorizontalOptions="End" CornerRadius="0" Padding="0" Margin="0" BorderColor="Transparent" BackgroundColor="Transparent"
+                                     Clicked="ClosePopup" TextColor="#1976d3" Style="{StaticResource lblBold16BlackStl}"></Button>
+                                    </Grid>
+                                </StackLayout>
+                                <StackLayout Padding="0">
+                                    <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="#D4D5D9"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Vertical" Padding="0,15,0,0">
+                                    <Label x:Name="lblDueLocation" Style="{StaticResource lblSemiBold14BlackStl}"></Label>
+                                    <Label x:Name="lblDueTiming" Style="{StaticResource lblRegular14GreyStl}"></Label>
+                                    <StackLayout Orientation="Horizontal" Spacing="5">
+                                        <Label Text="Due Amt : " TextColor="#bf2c2c" Style="{StaticResource lblSemiBold14BlackStl}"></Label>
+                                        <Label x:Name="lblDueAmount" TextColor="#bf2c2c" Style="{StaticResource lblSemiBold14BlackStl}"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" Spacing="5">
+                                        <Label Text="Duration : " TextColor="#bf2c2c" Style="{StaticResource lblSemiBold14BlackStl}"></Label>
+                                        <Label x:Name="lblDueDuration" TextColor="#bf2c2c" Style="{StaticResource lblSemiBold14BlackStl}"></Label>
+                                        <Label Text="(hrs)" TextColor="#bf2c2c" Style="{StaticResource lblSemiBold14BlackStl}"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" Spacing="5">
+                                        <Label Text="FOC Reason : " Style="{StaticResource lblSemiBold14BlackStl}"></Label>
+                                        <Label x:Name="lblDueFOCReason" Style="{StaticResource lblRegular14BlackStl}"></Label>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                </ContentView>
+                <!--PopUp End-->
+            </AbsoluteLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

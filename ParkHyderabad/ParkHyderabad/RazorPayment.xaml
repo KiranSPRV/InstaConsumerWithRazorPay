@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ParkHyderabad.RazorPayment"
+             NavigationPage.HasNavigationBar="False" >
+    <ContentPage.Content>
+        <AbsoluteLayout  x:Name="absLayout" VerticalOptions="FillAndExpand" Padding="0" Margin="0">
+            <StackLayout  AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All">
+                <WebView x:Name="webView"  Margin="0"
+                 Navigating="OnNavigating"  
+                 Navigated="OnNavigated"  
+                 VerticalOptions="FillAndExpand" />
+            </StackLayout>
+            <ContentView x:Name="StklauoutactivityIndicator" BackgroundColor="#1976d3"  IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout Orientation="Vertical" BackgroundColor="#1976d3" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand" >
+                    <StackLayout  VerticalOptions="EndAndExpand" Spacing="0" HorizontalOptions="CenterAndExpand"  Margin="0,40,0,0">
+                        <Label x:Name="lblLoadingMsg" TextColor="White" Text=" Please wait"   Style="{StaticResource LblBoldBlackStl}" VerticalOptions="CenterAndExpand" />
+                        <Label  TextColor="White" Text="Your payment is being processed"   Style="{StaticResource LblBoldBlackStl}" />
+                        <Label  TextColor="White" Text=" this may take a few seconds…"   Style="{StaticResource LblBoldBlackStl}"  />
+                    </StackLayout>
+                    <ActivityIndicator  x:Name="activity" IsEnabled="True" IsVisible="False" IsRunning="False" HeightRequest="80" Color="#FFFFFF" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" ></ActivityIndicator>
+                </StackLayout>
+            </ContentView>
+
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

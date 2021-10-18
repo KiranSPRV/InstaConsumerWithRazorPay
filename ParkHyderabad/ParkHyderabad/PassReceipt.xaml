@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ParkHyderabad.PassReceipt"
+             xmlns:ffSvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"  
+             xmlns:controls="clr-namespace:ParkHyderabad.Helper" 
+             NavigationPage.HasNavigationBar="True" NavigationPage.HasBackButton="False">
+    <NavigationPage.TitleView BackgroundColor="#1976d3">
+        <Label Text="Receipt" HorizontalOptions="CenterAndExpand" Style="{StaticResource LblBoldPageTitleStl}" Margin="0,0,10,0"/>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#1976d3" Margin="0" Padding="0">
+            <ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand" 
+                        VerticalScrollBarVisibility="Always" Padding="0" Margin="0">
+                <StackLayout BackgroundColor="#1976d3" Margin="0" Padding="0">
+                    <StackLayout Padding="0">
+                        <AbsoluteLayout x:Name="absLayout" Margin="0" BackgroundColor="Transparent"
+                                    AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All">
+                            <ScrollView Orientation="Vertical" VerticalScrollBarVisibility="Always">
+                                <StackLayout Orientation="Vertical" Padding="0" Margin="0" Spacing="0">
+                                    <Frame HasShadow="False" CornerRadius="10" BorderColor="#efefef" Padding="0" BackgroundColor="#FFFFFF" 
+                                   VerticalOptions="StartAndExpand" Margin="25,15,25,25">
+                                        <StackLayout Orientation="Vertical" Padding="20" Spacing="20">
+                                            <Grid Margin="0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="200"></RowDefinition>
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="4.5*"/>
+                                                    <ColumnDefinition Width="5.5*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <StackLayout Grid.Column="0" Grid.Row="0" Spacing="0" Padding="0" Margin="0" HeightRequest="0" WidthRequest="0">
+                                                    <controls:CustomFrame BorderColor="#1976d3" CornerRadius="10,10,0,0" Padding="0">
+                                                        <StackLayout Orientation="Vertical" VerticalOptions="Center" Padding="0,20,0,20" Margin="0" Spacing="5">
+                                                            <Label XAlign="Center" x:Name="lblPassTypeName" Style="{StaticResource lblBold16BlueStl}"></Label>
+                                                            <!--<Label Text="Pass" Style="{StaticResource lblRegular20GreyStl}" VerticalOptions="Center" HorizontalOptions="Center"></Label>-->
+                                                        </StackLayout>
+                                                    </controls:CustomFrame>
+                                                    <controls:CustomFrame BackgroundColor="#1976d3" CornerRadius="0,0,10,10" HasShadow="True" Padding="3">
+                                                        <StackLayout Orientation="Vertical" Padding="0" Margin="0" Spacing="0">
+                                                            <Label x:Name="lblStationAccess" Style="{StaticResource lblRegular14GreyStl}" 
+                                                   TextColor="#FFFFFF" VerticalOptions="Center" HorizontalOptions="Center"></Label>
+                                                            <Label x:Name="lblPriceDisplay" Style="{StaticResource lblBold16GreyStl}" 
+                                                   TextColor="#FFFFFF" VerticalOptions="Center" HorizontalOptions="Center"></Label>
+                                                        </StackLayout>
+                                                    </controls:CustomFrame>
+                                                    <StackLayout Orientation="Horizontal" Spacing="5" Padding="0" Margin="0,20,0,0">
+                                                        <ffSvg:SvgCachedImage x:Name="imgVehicle" BackgroundColor="Transparent" HeightRequest="20" WidthRequest="20" 
+                                                           VerticalOptions="Center" />
+                                                        <StackLayout Orientation="Vertical" VerticalOptions="Center"  Spacing="0">
+                                                            <Label x:Name="lblModel" Style="{StaticResource lblSemiBold14BlackStl}"/>
+                                                            <Label x:Name="lblRegistrationNumber" Text="AP12AP1212" Style="{StaticResource lblSemiBold16GreyStl}"/>
+                                                        </StackLayout>
+                                                    </StackLayout>
+                                                </StackLayout>
+                                                <StackLayout Spacing="5" Padding="20,0,0,0" Grid.Column="1" Grid.Row="0">
+                                                    <Label Text="Selected Station(s)" Style="{StaticResource lblSemiBold14GreyStl}"></Label>
+                                                    <Label x:Name="lblAllStation" IsVisible="False" Text="You can park your vehicle at any of the metro stations" Style="{StaticResource lblSemiBold14BlueStl}"></Label>
+                                                    <ListView x:Name="lstLocation" HasUnevenRows="False" HorizontalOptions="Center" SeparatorVisibility="None" RowHeight="35" VerticalScrollBarVisibility="Always">
+                                                        <ListView.ItemTemplate>
+                                                            <DataTemplate>
+                                                                <ViewCell>
+                                                                    <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="10" Padding="5" Margin="0">
+                                                                        <Button Text="{Binding LocationNumber}" BorderColor="#1976d3" HeightRequest="20" WidthRequest="20" Padding="0" Margin="0" 
+                                                                            CornerRadius="150" VerticalOptions="Center" HorizontalOptions="Center" FontSize="12" TextColor="#1976d3" Style="{StaticResource BtnHourStl}"/>
+                                                                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                                                                            <Label Text="{Binding LocationName}" LineBreakMode="WordWrap" Style="{StaticResource lblSemiBold12BlueStl}" />
+                                                                        </StackLayout>
+                                                                    </StackLayout>
+                                                                </ViewCell>
+                                                            </DataTemplate>
+                                                        </ListView.ItemTemplate>
+                                                    </ListView>
+                                                    <BoxView x:Name="lblLineStation" IsVisible="False" Color="#a3a3a3" HeightRequest="1" Margin="0"/>
+                                                    <Label x:Name="lblStation" IsVisible="False" Text="You can only park in these selected parking stations" Style="{StaticResource lblRegular12GreyStl}"></Label>
+                                                </StackLayout>
+                                            </Grid>
+                                            <StackLayout Orientation="Horizontal" Spacing="0" Padding="0" Margin="0">
+                                                <Frame HorizontalOptions="FillAndExpand" CornerRadius="1" Padding="5,5,0,5" BorderColor="#1976d3" BackgroundColor="#FFFFFF">
+                                                    <StackLayout Spacing="5" Padding="5" Margin="0">
+                                                        <Label Text="Valid from" Style="{StaticResource lblSemiBold14GreyStl}" HorizontalOptions="Start"/>
+                                                        <Label x:Name="lblFrom" XAlign="Center" LineBreakMode="WordWrap" HorizontalOptions="Start" Style="{StaticResource lblSemiBold12BlueStl}" />
+                                                    </StackLayout>
+                                                </Frame>
+                                                <Frame HorizontalOptions="FillAndExpand" CornerRadius="1" Padding="0,5,5,5" BorderColor="#1976d3" BackgroundColor="#FFFFFF">
+                                                    <StackLayout Spacing="5" Padding="5" Margin="0">
+                                                        <Label  Text="Valid to" Style="{StaticResource lblSemiBold14GreyStl}" HorizontalOptions="End"/>
+                                                        <Label x:Name="lblTo" XAlign="Center" LineBreakMode="WordWrap" HorizontalOptions="End" Style="{StaticResource lblSemiBold12BlueStl}" />
+                                                    </StackLayout>
+                                                </Frame>
+                                            </StackLayout>
+                                            <Frame HasShadow="False" Padding="0,10,0,10" Margin="0" CornerRadius="10" HeightRequest="50" BorderColor="#1976d3">
+                                                <StackLayout Padding="0" Orientation="Vertical" Spacing="0" HorizontalOptions="FillAndExpand">
+                                                    <Label Text="Paid" Style="{StaticResource lblBold14GreyStl}" 
+                                                      HorizontalOptions="CenterAndExpand"  Margin="0"></Label>
+                                                    <Label x:Name="lblParkingFee" Text="₹ 1200 /-" FontSize="25" 
+                                                  HorizontalOptions="CenterAndExpand" Style="{StaticResource lblBold20BlueStl}"></Label>
+                                                </StackLayout>
+                                            </Frame>
+                                        </StackLayout>
+                                    </Frame>
+                                    <StackLayout Padding="0" Margin="0" Spacing="15">
+                                        <StackLayout x:Name="lblNFCDisplay" HorizontalOptions="FillAndExpand" Spacing="10">
+                                            <Label Text="Thank You!" TextColor="#FFFFFF" XAlign="Center" Style="{StaticResource lblSemiBold20WhiteStl}"></Label>
+                                            <StackLayout HorizontalOptions="FillAndExpand" Spacing="0">
+                                                <Label Text="You can use the Pass to Park in these selected stations only." TextColor="#FFFFFF" XAlign="Center" Style="{StaticResource lblRegular14WhiteStl}"></Label>
+                                                <Label Text="Please choose a Lot to Book your parking" TextColor="#FFFFFF" XAlign="Center" Style="{StaticResource lblRegular14WhiteStl}"></Label>
+                                            </StackLayout>
+                                        </StackLayout>
+                                        <StackLayout Spacing="10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" IsVisible="false">
+                                            <Image BackgroundColor="Transparent" Source="qr_black.png" HeightRequest="150"></Image>
+                                            <Label x:Name="OrderID" Text="ID: #OI0123456789" TextColor="#FFFFFF" XAlign="Center" Style="{StaticResource LblBoldLargeBlueStl}"></Label>
+                                        </StackLayout>
+                                        <StackLayout VerticalOptions="CenterAndExpand" Padding="20,0,20,20">
+                                            <Button BorderColor="Transparent" Text="Okay" x:Name="btnDone" TextColor="#1976d3" Style="{StaticResource BtnRegularWhiteStl}" 
+                                           Clicked="btn_DoneClicked" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                    <ContentView x:Name="StklauoutactivityIndicator" BackgroundColor="Transparent"  IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                                        <StackLayout Orientation="Vertical" BackgroundColor="Transparent" HorizontalOptions="Center" VerticalOptions="Center">
+                                            <ActivityIndicator  x:Name="activity" IsEnabled="True" IsVisible="False" IsRunning="False" HeightRequest="80" Color="#010101" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></ActivityIndicator>
+                                            <Label x:Name="lblLoadingMsg" Text="Loading..."  Style="{StaticResource LblBoldBlackStl}" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand"></Label>
+                                        </StackLayout>
+                                    </ContentView>
+                                </StackLayout>
+                            </ScrollView>
+                        </AbsoluteLayout>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

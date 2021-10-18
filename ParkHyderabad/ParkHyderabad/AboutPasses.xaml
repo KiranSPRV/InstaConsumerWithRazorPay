@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ParkHyderabad.Behaviors"
+             x:Class="ParkHyderabad.AboutPasses"
+              NavigationPage.HasBackButton="True">
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="About Passes" VerticalOptions="Center" Style="{StaticResource LblBoldPageTitleStl}" Margin="0,0,70,0" />
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#FFFFFF">
+            <AbsoluteLayout x:Name="absLayout" VerticalOptions="FillAndExpand">
+                <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" Padding="20">
+                    <ScrollView>
+                        <StackLayout Spacing="20">
+                            <StackLayout Spacing="5">
+                                <Label Text="In Lieu of COVID-19 pandemic, we have created contact less and hassle free parking for our customers. Obtain a Pass of your choice, park your vehicle, use App to CHECK-IN and CHECK-OUT without waiting at the parking lot. You could complete your parking entry process in less than 10 seconds. Always keep your passes active to Check-IN and OUT for all your parking entries to avoid Clamp, Overstay or Unpaid parking violations saving you a fortune." Style="{StaticResource LblLargeGreyedStl}"></Label>
+                                <Label Text="Every pass is valid for fixed number of days starting from the date of purchase." Style="{StaticResource LblLargeGreyedStl}"></Label>
+                            </StackLayout>
+                            <StackLayout>
+                                <Label Text="Choose from a range of passes to suit your needs and save up to 30%" Style="{StaticResource LblLargeGreyedStl}" TextColor="#1976d3" FontSize="14" FontFamily="MontserratBold.ttf#MontserratBold" ></Label>
+                            </StackLayout>
+                            <StackLayout Spacing="10">
+                                <Label HorizontalOptions="StartAndExpand" Text="Weekly Pass (*Single Station)" Style="{StaticResource LblBoldLargeBlackLeftStl}" TextColor="#eeb042"/>
+                                <Label HorizontalOptions="StartAndExpand" Text="Weekly pass valid for 7 days from the date of purchase. Pass will be valid at a Single metro station only. Save up to 15%." Style="{StaticResource LblLargeGreyedStl}"/>
+                            </StackLayout>
+                            <StackLayout Spacing="10">
+                                <Label HorizontalOptions="StartAndExpand" Text="Monthly Pass (*Single Station)" Style="{StaticResource LblBoldLargeBlackLeftStl}" TextColor="#eeb042"/>
+                                <Label HorizontalOptions="StartAndExpand" Text="Validity of the pass is for 30 days from the date of purchase. Single Station monthly pass valid at single metro station only. Save up to 30%." Style="{StaticResource LblLargeGreyedStl}"/>
+                                <Label HorizontalOptions="StartAndExpand" Text="**It is mandatory to use the App for Check-in and Out." Style="{StaticResource LblLargeGreyedStl}"></Label>
+                            </StackLayout>
+                            <StackLayout Spacing="10">
+                                <Label HorizontalOptions="StartAndExpand" Text="Monthly Pass (* Multi Station)" Style="{StaticResource LblBoldLargeBlackLeftStl}" TextColor="#eeb042"/>
+                                <Label HorizontalOptions="StartAndExpand" Text="Valid for 30 days from the date of purchase. Monthly Pass valid at any Three registered metro stations of your choice. Save up to 25%." Style="{StaticResource LblLargeGreyedStl}"/>
+                                <Label HorizontalOptions="StartAndExpand" Text="**It is mandatory to use the App for Check-in and Out." Style="{StaticResource LblLargeGreyedStl}"></Label>
+                            </StackLayout>
+                            <StackLayout Spacing="10">
+                                <Label HorizontalOptions="StartAndExpand" Text="Monthly Pass (*All Station)" Style="{StaticResource LblBoldLargeBlackLeftStl}" TextColor="#eeb042"/>
+                                <Label HorizontalOptions="StartAndExpand" Text="Valid for 30 days from the date of purchase. Monthly pass valid at ALL applicable Metro stations.  Save up to 20%." Style="{StaticResource LblLargeGreyedStl}"/>
+                                <Label HorizontalOptions="StartAndExpand" Text="**It is mandatory to use the App for Check-in and Out." Style="{StaticResource LblLargeGreyedStl}"></Label>
+                            </StackLayout>
+                            <StackLayout Spacing="10">
+                                <Label TextColor="#1976d3" HorizontalOptions="StartAndExpand" Text="*Terms &amp; Conditions Apply" Style="{StaticResource LblRegularBlackStl}">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="lbl_TermsAndConditionsTapped"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+                        </StackLayout>
+                    </ScrollView>
+                </StackLayout>
+                <ContentView x:Name="StklauoutactivityIndicator" BackgroundColor="Transparent"  IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                    <StackLayout Orientation="Vertical" BackgroundColor="Transparent" HorizontalOptions="Center" VerticalOptions="Center">
+                        <ActivityIndicator  x:Name="activity" IsEnabled="True" IsVisible="False" IsRunning="False" HeightRequest="80" Color="#010101" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></ActivityIndicator>
+                        <Label x:Name="lblLoadingMsg" Text="Loading..."  Style="{StaticResource LblBoldBlackStl}" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand"></Label>
+                    </StackLayout>
+                </ContentView>
+            </AbsoluteLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>        

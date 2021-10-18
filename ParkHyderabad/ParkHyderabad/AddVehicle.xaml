@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ParkHyderabad.Helper"
+             xmlns:ffSvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"                            
+             xmlns:behaviour="clr-namespace:ParkHyderabad.Behaviors"
+             x:Class="ParkHyderabad.AddVehicle"
+             NavigationPage.HasBackButton="True">
+    <NavigationPage.TitleView BackgroundColor="#1976d3">
+        <Label Text="Add Vehicle" Style="{StaticResource LblBoldPageTitleStl}"  Margin="0,0,70,0"/>
+    </NavigationPage.TitleView>
+    <StackLayout BackgroundColor="#1976d3" Padding="0" Margin="0" Spacing="0">
+        <AbsoluteLayout BackgroundColor="#1976d3" x:Name="absLayout" VerticalOptions="FillAndExpand" Padding="0" Margin="0">
+            <Frame CornerRadius="10" Margin="20" BackgroundColor="#FFFFFF" HorizontalOptions="FillAndExpand" 
+                             Padding="15,25,15,10"  AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All">
+                <ScrollView Orientation="Vertical" VerticalScrollBarVisibility="Always">
+                <StackLayout>
+                        <Frame HorizontalOptions="Center" HasShadow="True" CornerRadius="30" BorderColor="#f4f4f4" Padding="5" Margin="0,5,0,0">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" BackgroundColor="Transparent" Padding="0" Margin="0" Spacing="5">
+                                <ffSvg:SvgCachedImage x:Name="svgTwo" Margin="0" BackgroundColor="Transparent" HeightRequest="40" WidthRequest="40" VerticalOptions="Center"
+                                        Source="resource://ParkHyderabad.Resources.blue_circle_bike.svg">
+                                    <ffSvg:SvgCachedImage.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TwoWheeler_Tapped"></TapGestureRecognizer>
+                                    </ffSvg:SvgCachedImage.GestureRecognizers>
+                                </ffSvg:SvgCachedImage>
+                                <ffSvg:SvgCachedImage x:Name="svgFour" Margin="0" BackgroundColor="Transparent" HeightRequest="40" WidthRequest="40" VerticalOptions="Center"
+                                        Source="resource://ParkHyderabad.Resources.grey_circle_car.svg">
+                                    <ffSvg:SvgCachedImage.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="FourWheeler_Tapped"></TapGestureRecognizer>
+                                    </ffSvg:SvgCachedImage.GestureRecognizers>
+                                </ffSvg:SvgCachedImage>
+                            </StackLayout>
+                        </Frame>
+                        <StackLayout Spacing="20" Padding="20,30,20,5">
+                            <StackLayout Orientation="Vertical" Spacing="0" Padding="0">
+                                <Grid>
+                                    <Label x:Name="lblMake" Text="Make" VerticalOptions="Center" Style="{StaticResource LblPlaceHolderforAddVehicleStl}">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="lblMake_Handle_Tapped" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                    <local:FloatingLabelForAddVehiclePage x:Name="txtMake" HeightRequest="46" Title="Make" Keyboard="Text" Text=""
+                                        MaxLength="20" CharacterSpacing="0.1" TextColor="#a3a3a3" Style="{StaticResource EntryRegularStl}"
+                                        Completed="txtMake_Handle_Completed" Unfocused="txtMake_Handle_Unfocused" Focused="txtMake_Handle_Focused">
+                                    </local:FloatingLabelForAddVehiclePage>
+                                </Grid>
+                            </StackLayout>
+                            <StackLayout Orientation="Vertical"  Spacing="0">
+                                <Grid>
+                                    <Label x:Name="lblModel" Text="Model" VerticalOptions="Center" Style="{StaticResource LblPlaceHolderforAddVehicleStl}">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="lblModel_Handle_Tapped" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                    <local:FloatingLabelForAddVehiclePage x:Name="txtModel"  HeightRequest="46" Title="Model" Keyboard="Text" Text=""
+                                        MaxLength="30" CharacterSpacing="0.1" TextColor="#a3a3a3" Style="{StaticResource EntryRegularStl}"
+                                        Completed="txtModel_Handle_Completed" Unfocused="txtModel_Handle_Unfocused" Focused="txtModel_Handle_Focused">
+                                    </local:FloatingLabelForAddVehiclePage>
+                                </Grid>
+                            </StackLayout>
+                            <StackLayout Orientation="Vertical"  Spacing="0">
+                                <Grid>
+                                    <Label x:Name="lblColor" Text="Color" VerticalOptions="Center" Style="{StaticResource LblPlaceHolderforAddVehicleStl}">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="lblColor_Handle_Tapped" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                    <local:FloatingLabelForAddVehiclePage x:Name="txtColor" HeightRequest="46" Title="Color" Keyboard="Text" Text=""
+                                        MaxLength="30" CharacterSpacing="0.1" TextColor="#a3a3a3" Style="{StaticResource EntryRegularStl}"
+                                        Completed="txtColor_Handle_Completed" Unfocused="txtColor_Handle_Unfocused" Focused="txtColor_Handle_Focused">
+                                    </local:FloatingLabelForAddVehiclePage>
+                                </Grid>
+                            </StackLayout>
+                            <StackLayout Orientation="Vertical" Spacing="0">
+                                <Grid>
+                                    <Label x:Name="lblRegNumber" Text="Registration Number" VerticalOptions="Center" Style="{StaticResource LblPlaceHolderforAddVehicleStl}">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="lblRegNumber_Handle_Tapped" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                    <local:FloatingLabelForAddVehiclePage x:Name="txtRegNumber" HeightRequest="46" Title="Registration Number" Text=""
+                                        MaxLength="30" CharacterSpacing="0.1" TextColor="#a3a3a3" Style="{StaticResource EntryRegularStl}"
+                                        Completed="txtRegNumber_Handle_Completed" Unfocused="txtRegNumber_Handle_Unfocused" Focused="txtRegNumber_Handle_Focused">
+                                        <local:FloatingLabelForAddVehiclePage.Keyboard>
+                                            <Keyboard x:FactoryMethod="Create">
+                                                <x:Arguments>
+                                                    <KeyboardFlags>CapitalizeCharacter</KeyboardFlags>
+                                                </x:Arguments>
+                                            </Keyboard>
+                                        </local:FloatingLabelForAddVehiclePage.Keyboard>
+                                        <local:FloatingLabelForAddVehiclePage.Behaviors>
+                                            <behaviour:AlphaNumericValidatorBehavior />
+                                        </local:FloatingLabelForAddVehiclePage.Behaviors>
+                                    </local:FloatingLabelForAddVehiclePage>
+                                </Grid>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" Spacing="20" HeightRequest="25">
+                                <Switch x:Name="swtPrimary">
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup x:Name="CommonStates">
+                                            <VisualState x:Name="On">
+                                                <VisualState.Setters>
+                                                    <Setter Property="ThumbColor" Value="#1976d3" />
+                                                    <Setter Property="OnColor" Value="#a3a3a3" />
+                                                </VisualState.Setters>
+                                            </VisualState>
+                                            <VisualState x:Name="Off">
+                                                <VisualState.Setters>
+                                                    <Setter Property="ThumbColor" Value="#a3a3a3" />
+                                                </VisualState.Setters>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+                                </Switch>
+                                <Label Text="Primary Vehicle" FontSize="16" TextColor="#4b4c51" CharacterSpacing="0.1"
+                                FontFamily="MontserratRegular.ttf#MontserratRegular">
+                                    <Label.Triggers>
+                                        <DataTrigger TargetType="Label" Binding="{Binding Source={x:Reference swtPrimary}, Path=IsToggled}">
+                                            <Setter Property="FontSize"  Value="16" />
+                                            <Setter Property="TextColor" Value="#4b4c51" />
+                                            <Setter Property="CharacterSpacing" Value="0.1" />
+                                            <Setter Property="FontFamily" Value="MontserratRegular.ttf#MontserratRegular"  />
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
+                            </StackLayout>
+                        <StackLayout IsVisible="False" Orientation="Horizontal" Spacing="20" HeightRequest="25">
+                            <Switch x:Name="swtActive">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="On">
+                                            <VisualState.Setters>
+                                                <Setter Property="ThumbColor" Value="#1976d3" />
+                                                <Setter Property="OnColor" Value="#a3a3a3" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                        <VisualState x:Name="Off">
+                                            <VisualState.Setters>
+                                                <Setter Property="ThumbColor" Value="#a3a3a3" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                            </Switch>
+                            <Label Text="IsActive" FontSize="16" TextColor="#4b4c51" CharacterSpacing="0.1"
+                                FontFamily="MontserratRegular.ttf#MontserratRegular">
+                                <Label.Triggers>
+                                        <DataTrigger TargetType="Label" Binding="{Binding Source={x:Reference swtActive}, Path=IsToggled}">
+                                        <Setter Property="FontSize"  Value="16" />
+                                        <Setter Property="TextColor" Value="#4b4c51" />
+                                        <Setter Property="CharacterSpacing" Value="0.1" />
+                                        <Setter Property="FontFamily" Value="MontserratRegular.ttf#MontserratRegular"  />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </StackLayout>
+                    </StackLayout>
+                        <StackLayout Spacing="0" Padding="0" Margin="0,20,0,0">
+                            <StackLayout Padding="20,0,20,10" Spacing="20">
+                                <BoxView Color="#D4D5D9" HeightRequest="1" Margin="0"></BoxView>
+                                <Button Text="Add Vehicle" x:Name="btnAddVehicle" Style="{StaticResource btnBlueStl}" Clicked="btn_AddVehicleClicked"></Button>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </ScrollView>
+            </Frame>
+            <ContentView x:Name="StklauoutactivityIndicator" BackgroundColor="Transparent"  IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout Orientation="Vertical" BackgroundColor="Transparent" HorizontalOptions="Center" VerticalOptions="Center">
+                    <ActivityIndicator  x:Name="activity" IsEnabled="True" IsVisible="False" IsRunning="False" HeightRequest="80" Color="#010101" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></ActivityIndicator>
+                    <Label x:Name="lblLoadingMsg" Text="Loading..."  Style="{StaticResource LblBoldBlackStl}" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand"></Label>
+                </StackLayout>
+            </ContentView>
+        </AbsoluteLayout>
+    </StackLayout>
+</ContentPage>

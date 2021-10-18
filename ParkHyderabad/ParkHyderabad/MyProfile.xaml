@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behaviour="clr-namespace:ParkHyderabad.Behaviors"
+             x:Class="ParkHyderabad.MyProfile"             
+             xmlns:custom="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             NavigationPage.HasBackButton="True"
+             xmlns:local="clr-namespace:ParkHyderabad.Helper">
+    <NavigationPage.TitleView BackgroundColor="#FFFFFF" TextColour="#010101">
+        <Label Text="My Profile"  Style="{StaticResource LblBoldPageTitleStl}" Margin="0,0,70,0" />
+    </NavigationPage.TitleView>
+    <StackLayout BackgroundColor="#FFFFFF">
+        <AbsoluteLayout x:Name="absLayout">
+            <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,0.95" AbsoluteLayout.LayoutFlags="All">
+                <ScrollView>
+                    <StackLayout>
+                        <StackLayout Padding="20,20,20,10">
+                            <StackLayout.GestureRecognizers >
+                                <TapGestureRecognizer x:Name="slProfileClicked" Tapped="img_ProfileClicked"/>
+                            </StackLayout.GestureRecognizers>
+                            <custom:CircleImage x:Name="imgProfile" Source="profilepic.png" WidthRequest="200" HeightRequest="150" Aspect="Fill" 
+                                    VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </StackLayout>
+                        <StackLayout x:Name="stkCameraGallery" IsVisible="False" Padding="0,0,0,5" Spacing="40" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                            <ImageButton x:Name="imgCamera" Source="camera.png" HeightRequest="80" WidthRequest="80" BackgroundColor="Transparent" 
+                                Clicked="img_CameraClicked" />
+                            <ImageButton x:Name="imgGallery" Source="gallery.png" HeightRequest="80" WidthRequest="80" BackgroundColor="Transparent" 
+                                Clicked="img_GalleryClicked" />
+                        </StackLayout>
+                        <StackLayout Spacing="20" Padding="20,10,20,10">
+                            <StackLayout Orientation="Vertical"  Spacing="0">
+                                <Grid>
+                                <Label x:Name="lblName" Text="Name" Style="{StaticResource LblPlaceHolderMyPrflStl}" VerticalOptions="Center">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="lblName_Handle_Tapped" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                                <local:FloatingLabelForAddVehiclePage x:Name="txtName" HeightRequest="46" Title="Registration Number" Text=""
+                                        MaxLength="20" CharacterSpacing="0.1" TextColor="#4b4c51" Style="{StaticResource EntryRegularMyPrflStl}" HorizontalOptions="FillAndExpand"
+                                        Completed="txtName_Handle_Completed" Unfocused="txtName_Handle_Unfocused" Focused="txtName_Handle_Focused">
+                                    <local:FloatingLabelForAddVehiclePage.Keyboard>
+                                        <Keyboard x:FactoryMethod="Create">
+                                            <x:Arguments>
+                                                <KeyboardFlags>Suggestions,CapitalizeCharacter</KeyboardFlags>
+                                            </x:Arguments>
+                                        </Keyboard>
+                                    </local:FloatingLabelForAddVehiclePage.Keyboard>
+                                    <!--<local:FloatingLabelForAddVehiclePage.Behaviors>
+                                        <behaviour:AlphabetsValidatorBehavior />
+                                    </local:FloatingLabelForAddVehiclePage.Behaviors>-->
+                                </local:FloatingLabelForAddVehiclePage>                              
+                                </Grid>
+                            </StackLayout>
+                            <StackLayout Orientation="Vertical"  Spacing="0">
+                                <Grid>
+                                <Label x:Name="lblPhoneNumber" Text="Phone Number" Style="{StaticResource LblPlaceHolderMyPrflStl}"  VerticalOptions="Center">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="lblPhoneNumber_Handle_Tapped" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                                <local:FloatingLabelForAddVehiclePage x:Name="txtPhoneNumber" HeightRequest="46" Title="Phone Number" Keyboard="Numeric" IsEnabled="False"
+                                        MaxLength="10" CharacterSpacing="0.1" TextColor="#4b4c51" Style="{StaticResource EntryRegularMyPrflStl}"  HorizontalOptions="FillAndExpand"
+                                        Completed="txtPhoneNumber_Handle_Completed" Unfocused="txtPhoneNumber_Handle_Unfocused" Focused="txtPhoneNumber_Handle_Focused">
+                                </local:FloatingLabelForAddVehiclePage>
+                                
+                                </Grid>
+                            </StackLayout>
+                            <StackLayout Orientation="Vertical"  Spacing="0">
+                                <Grid>
+                                <Label x:Name="lblEmail" Text="Email" Style="{StaticResource LblPlaceHolderMyPrflStl}" VerticalOptions="Center">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="lblEmail_Handle_Tapped" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                                <local:FloatingLabelForAddVehiclePage x:Name="txtEmail" HeightRequest="46" Title="Email" Keyboard="Email"
+                                        MaxLength="30" CharacterSpacing="0.1" TextColor="#4b4c51" Style="{StaticResource EntryRegularMyPrflStl}"  HorizontalOptions="FillAndExpand"
+                                        Completed="txtEmail_Handle_Completed" Unfocused="txtEmail_Handle_Unfocused" Focused="txtEmail_Handle_Focused">
+                                </local:FloatingLabelForAddVehiclePage>
+                               
+                                </Grid>
+                            </StackLayout>
+                            <StackLayout Orientation="Vertical"  Spacing="0">
+                                <Grid>
+                                <Label x:Name="lblYear" Text="Year Of Birth" Style="{StaticResource LblPlaceHolderMyPrflStl}" VerticalOptions="Center">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="lblYear_Handle_Tapped" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                                <local:FloatingLabelForAddVehiclePage x:Name="txtYearOfBirth" HeightRequest="46" Title="Year Of Birth" Keyboard="Numeric"
+                                        MaxLength="4" CharacterSpacing="0.1" TextColor="#4b4c51" Style="{StaticResource EntryRegularMyPrflStl}"  HorizontalOptions="FillAndExpand"
+                                        Completed="txtYearOfBirth_Handle_Completed" Unfocused="txtYearOfBirth_Handle_Unfocused" Focused="txtYearOfBirth_Handle_Focused">
+                                </local:FloatingLabelForAddVehiclePage>
+                                
+                                </Grid>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+            <ContentView x:Name="StklauoutactivityIndicator" BackgroundColor="Transparent"  IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout Orientation="Vertical" BackgroundColor="Transparent" HorizontalOptions="Center" VerticalOptions="Center">
+                    <ActivityIndicator  x:Name="activity" IsEnabled="True" IsVisible="False" IsRunning="False" HeightRequest="80" Color="#010101" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></ActivityIndicator>
+                    <Label x:Name="lblLoadingMsg" Text="Loading..."  Style="{StaticResource LblBoldBlackStl}" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand"></Label>
+                </StackLayout>
+            </ContentView>
+        </AbsoluteLayout>
+        <StackLayout VerticalOptions="End" Spacing="0" Padding="0" Margin="0">
+            <StackLayout VerticalOptions="CenterAndExpand" Padding="20,10,20,10">
+                <Button Text="UPDATE" x:Name="btnUpdate" Style="{StaticResource btnBlueStl}" Clicked="btn_UpdateClicked"></Button>
+            </StackLayout>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ParkHyderabad.InstaSupport"
+             xmlns:controls="clr-namespace:ParkHyderabad.Controls" 
+             xmlns:ffSvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms" 
+             NavigationPage.HasBackButton="True"
+             xmlns:local="clr-namespace:ParkHyderabad.Helper">
+    <NavigationPage.TitleView BackgroundColor="#1976d3" TextColour="#FFFFFF">
+        <Label Text="Support" Style="{StaticResource LblBoldPageTitleStl}" Margin="0,0,70,0"/>
+    </NavigationPage.TitleView>
+    <StackLayout BackgroundColor="#1976d3">
+        <AbsoluteLayout x:Name="absLayout" VerticalOptions="FillAndExpand">
+            <StackLayout Margin="5,15,5,0" >
+                <StackLayout Orientation="Vertical">
+                    <StackLayout Spacing="20" Padding="20,20,20,0">
+                        <StackLayout Orientation="Vertical" Spacing="10">
+                            <Grid>
+                                <Label x:Name="lblName" Text="Enter your name*" Style="{StaticResource LblPlaceHolderMyPrflStl}" VerticalOptions="Center">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="lblName_Handle_Tapped" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                                <local:FloatingLableforOfferSpace x:Name="txtName" HeightRequest="46" Title="Enter your name*" Text=""
+                                        MaxLength="20" CharacterSpacing="0.1" TextColor="#FFF" Style="{StaticResource EntryRegularMyPrflStl}" HorizontalOptions="FillAndExpand"
+                                        Completed="txtName_Handle_Completed" Unfocused="txtName_Handle_Unfocused" Focused="txtName_Handle_Focused">
+                                    <local:FloatingLableforOfferSpace.Keyboard>
+                                        <Keyboard x:FactoryMethod="Create">
+                                            <x:Arguments>
+                                                <KeyboardFlags>Suggestions,CapitalizeCharacter</KeyboardFlags>
+                                            </x:Arguments>
+                                        </Keyboard>
+                                    </local:FloatingLableforOfferSpace.Keyboard>
+                                </local:FloatingLableforOfferSpace>
+                            </Grid>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" Spacing="10">
+                            <Grid>
+                                <Label x:Name="lblPhoneNumber" Text="Enter your Phone Number*" Style="{StaticResource LblPlaceHolderMyPrflStl}"  VerticalOptions="Center">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="lblPhoneNumber_Handle_Tapped" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                                <local:FloatingLableforOfferSpace x:Name="txtPhoneNumber" HeightRequest="46" Title="Phone Number" Keyboard="Numeric" Text=""
+                                        MaxLength="10" CharacterSpacing="0.1" TextColor="#FFF" Style="{StaticResource EntryRegularMyPrflStl}"  HorizontalOptions="FillAndExpand"
+                                        Completed="txtPhoneNumber_Handle_Completed" Unfocused="txtPhoneNumber_Handle_Unfocused" Focused="txtPhoneNumber_Handle_Focused">
+                                </local:FloatingLableforOfferSpace>
+                            </Grid>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" Spacing="10" >
+                            <Grid>
+                                <Label x:Name="lblEmail" Text="Enter your Email Id*" Style="{StaticResource LblPlaceHolderMyPrflStl}" VerticalOptions="Center">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="lblEmail_Handle_Tapped" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                                <local:FloatingLableforOfferSpace x:Name="txtEmail" HeightRequest="46" Title="Email" Keyboard="Email" Text="" 
+                                        MaxLength="50" CharacterSpacing="0.1" TextColor="#FFF" Style="{StaticResource EntryRegularMyPrflStl}"  HorizontalOptions="FillAndExpand"
+                                        Completed="txtEmail_Handle_Completed" Unfocused="txtEmail_Handle_Unfocused" Focused="txtEmail_Handle_Focused">
+                                </local:FloatingLableforOfferSpace></Grid>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" Spacing="10">
+                            <Grid>
+                                <Label x:Name="lblMessage" Text="Message*" Style="{StaticResource LblPlaceHolderMyPrflStl}" VerticalOptions="Center">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="lblMessage_Handle_Tapped" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                                <local:FloatingLableforOfferSpace x:Name="txtMessage" HeightRequest="46" Title="Message" Keyboard="Text" Text=""
+                                        MaxLength="200" CharacterSpacing="0.1" TextColor="#FFF" Style="{StaticResource EntryRegularMyPrflStl}"  HorizontalOptions="FillAndExpand"
+                                        Completed="txtMessage_Handle_Completed" Unfocused="txtMessage_Handle_Unfocused" Focused="txtMessage_Handle_Focused">
+                                </local:FloatingLableforOfferSpace>
+                            </Grid>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" Margin="20,15,20,15" >
+                    <Label CharacterSpacing="0" Text="Please submit your grievance. Allow us 48 hrs to respond. Alternatively, call us during biz hours Mon-Sat from 9:30am to 5:30pm." 
+                                   FontSize="14" FontFamily="MontserratLight.ttf#MontserratLight" TextColor="#FFF" VerticalOptions="CenterAndExpand"></Label>
+                </StackLayout>
+            </StackLayout>
+            <ContentView x:Name="StklauoutactivityIndicator" BackgroundColor="Transparent"  IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1,1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout Orientation="Vertical" BackgroundColor="Transparent" HorizontalOptions="Center" VerticalOptions="EndAndExpand">
+                    <ActivityIndicator  x:Name="activity" IsEnabled="True" IsVisible="False" IsRunning="False" HeightRequest="80" Color="#010101" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></ActivityIndicator>
+                    <Label x:Name="lblLoadingMsg" Text="Loading..."  Style="{StaticResource LblBoldBlackStl}" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand"></Label>
+                </StackLayout>
+            </ContentView>            
+        </AbsoluteLayout>
+        <StackLayout VerticalOptions="End" Padding="20,0,20,10" Spacing="12" Margin="0">
+            <StackLayout VerticalOptions="CenterAndExpand" Spacing="15" Padding="0" Orientation="Vertical">
+                <Button Text="Submit" x:Name="btnSubmit" Style="{StaticResource BtnSubmitStl}"
+                               Clicked="btn_SubmitClicked"></Button>
+            </StackLayout>
+            <StackLayout>
+                <Label XAlign="Center" Text="(Or)" Padding="0" Style="{StaticResource LblBoldPageTitleStl}" VerticalOptions="CenterAndExpand"
+                               HorizontalOptions="CenterAndExpand"/>
+            </StackLayout>
+            <StackLayout  Orientation="Horizontal" Padding="0" Margin="0" Spacing="10">
+                <Frame HasShadow="False" CornerRadius="5" Padding="8" HorizontalOptions="FillAndExpand" BorderColor="Transparent">
+                    <ffSvg:SvgCachedImage BackgroundColor="Transparent" HeightRequest="30" WidthRequest="30" 
+                                      Source="resource://ParkHyderabad.Resources.call.svg">
+                        <ffSvg:SvgCachedImage.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="imgbtn_MakeACall"></TapGestureRecognizer>
+                        </ffSvg:SvgCachedImage.GestureRecognizers>
+                    </ffSvg:SvgCachedImage>
+                </Frame>
+                <Frame HasShadow="False" CornerRadius="5" Padding="8" HorizontalOptions="FillAndExpand" BorderColor="Transparent">
+                    <ffSvg:SvgCachedImage BackgroundColor="Transparent" HeightRequest="30" WidthRequest="30" 
+                                  Source="resource://ParkHyderabad.Resources.chat.svg">
+                        <ffSvg:SvgCachedImage.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="guestureChat" Tapped="guestureChat_Tapped"></TapGestureRecognizer>
+                        </ffSvg:SvgCachedImage.GestureRecognizers>
+                    </ffSvg:SvgCachedImage>
+                   
+                  
+                </Frame>
+            </StackLayout>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

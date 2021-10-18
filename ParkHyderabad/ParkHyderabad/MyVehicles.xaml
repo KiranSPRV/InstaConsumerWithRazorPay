@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ParkHyderabad.MyVehicles"             
+             xmlns:controls="clr-namespace:ParkHyderabad;assembly=ParkHyderabad"
+             x:Name="CurrentPage"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"  
+             xmlns:ffSvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"               
+             xmlns:ffTrans="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             NavigationPage.HasBackButton="False">
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" Spacing="30">
+            <StackLayout Orientation="Horizontal" Margin="5,0,0,0">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="btn_BackClicked"></TapGestureRecognizer>
+                </StackLayout.GestureRecognizers>
+                <ffSvg:SvgCachedImage Margin="0" BackgroundColor="Transparent" HeightRequest="15" WidthRequest="15"
+                 Source="resource://ParkHyderabad.Resources.left_arrow.svg">
+                </ffSvg:SvgCachedImage>
+            </StackLayout> 
+            <Label Text="My Vehicles"  Style="{StaticResource LblBoldExtraLargeTitleStl}" HorizontalOptions="StartAndExpand"/>
+        </StackLayout>
+    </NavigationPage.TitleView> 
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#1976d3" Padding="0" Margin="0" Spacing="0">
+            <AbsoluteLayout BackgroundColor="#1976d3" x:Name="absLayout" VerticalOptions="FillAndExpand" Padding="0" Margin="0">
+              
+                <Frame CornerRadius="10" Margin="20,30,20,20" HasShadow="True"
+                       BackgroundColor="#FFFFFF" HorizontalOptions="FillAndExpand" 
+                             Padding="15,25,15,10"  AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout BackgroundColor="#FFFFFF" Spacing="10">
+                        <Label x:Name="lblmyvehicle" Style="{StaticResource LblRegularPageTitleStl}" HorizontalOptions="StartAndExpand"></Label>
+
+                    <StackLayout Spacing="10" HorizontalOptions="CenterAndExpand" >
+                        <CollectionView x:Name="ColView" Margin="0" ItemsLayout="VerticalGrid, 3"
+                                        SelectionChanged="ColView_SelectionChanged" SelectionMode="Single">
+                            
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Padding="10">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>  
+                                        <Frame BorderColor="#fff" HasShadow="True" CornerRadius="5" Padding="0">
+                                        <StackLayout Orientation="Vertical" Padding="10" Margin="0" Spacing="0" BindingContext="{Binding .}">
+                                               <ffSvg:SvgCachedImage Margin="0" BackgroundColor="Transparent" HeightRequest="15" 
+                                                  WidthRequest="15" HorizontalOptions="End"  Source="{Binding PrimaryVehicleImage}">
+                                            </ffSvg:SvgCachedImage>                                           
+                                            <ffSvg:SvgCachedImage Margin="0" BackgroundColor="Transparent" HeightRequest="25" 
+                                                  WidthRequest="25" HorizontalOptions="CenterAndExpand"  Source="{Binding VehicleImage}">
+                                            </ffSvg:SvgCachedImage>
+                                                <Label XAlign="Center"  Text="{Binding Model}" LineBreakMode="WordWrap" FontSize="{Binding ModelFontsize}" Style="{StaticResource LblBoldVehicleNameStl}" HorizontalOptions="CenterAndExpand"></Label>
+                                            <Label Text="{Binding RegistrationNumber}" LineBreakMode="WordWrap" Style="{StaticResource LblBoldVehicleNotextStl}" HorizontalOptions="CenterAndExpand"></Label>
+                                            </StackLayout>
+                                    </Frame>     
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+            <RelativeLayout AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.52,0,100,50">
+                <Frame HasShadow="True" CornerRadius="30" BorderColor="#f4f4f4" Padding="5" Margin="0,5,0,0">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" BackgroundColor="Transparent" Padding="0" Margin="0" Spacing="5">                        
+                        <ffSvg:SvgCachedImage x:Name="svgTwo" Margin="0" BackgroundColor="Transparent" HeightRequest="35" WidthRequest="35" VerticalOptions="Center"
+                                        Source="resource://ParkHyderabad.Resources.blue_circle_bike.svg">
+                            <ffSvg:SvgCachedImage.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TwoWheeler_Tapped"></TapGestureRecognizer>
+                            </ffSvg:SvgCachedImage.GestureRecognizers>
+                        </ffSvg:SvgCachedImage>
+                            <ffSvg:SvgCachedImage x:Name="svgFour" Margin="0" BackgroundColor="Transparent" HeightRequest="35" WidthRequest="35" VerticalOptions="Center"
+                                        Source="resource://ParkHyderabad.Resources.grey_circle_car.svg">
+                                <ffSvg:SvgCachedImage.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="FourWheeler_Tapped"></TapGestureRecognizer>
+                                </ffSvg:SvgCachedImage.GestureRecognizers>
+                            </ffSvg:SvgCachedImage>
+                        </StackLayout>
+                </Frame>
+            </RelativeLayout>
+            </AbsoluteLayout>
+        </StackLayout>        
+    </ContentPage.Content>
+</ContentPage>

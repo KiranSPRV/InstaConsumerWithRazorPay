@@ -1,0 +1,572 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"             
+             x:Class="ParkHyderabad.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Style x:Key="LblLargeGreyedStl" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="TextColor" Value="#7E808C" />
+                <Setter Property="FontFamily" Value="MontserratRegular.ttf#MontserratRegular" />
+            </Style>
+            <Style x:Key="LblBoldLargeBlueStl" TargetType="Label">
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="TextColor" Value="#1976d3" />
+                <Setter Property="CharacterSpacing" Value="0.1" />
+                <Setter Property="FontFamily" Value="MontserratBold.ttf#MontserratBold" />
+            </Style>
+            <Style x:Key="LblRegularBlackStl" TargetType="Label">
+                <Setter Property="TextColor" Value="#010101" />
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="FontFamily" Value="MontserratRegular.ttf#MontserratRegular"  />
+            </Style>
+            <Style x:Key="LblBoldLargeBlackLeftStl" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="CharacterSpacing" Value="0.5"/>
+                <Setter Property="TextColor" Value="#010101" />
+                <Setter Property="FontFamily" Value="MontserratBold.ttf#MontserratBold"  />
+            </Style>
+            <Style x:Key="LblBoldExtraLargeStl" TargetType="Label">
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontFamily" Value="MontserratBold.ttf#MontserratBold" />
+            </Style>
+            <Style x:Key="LblBoldWhiteStl" TargetType="Label">
+                <Setter Property="TextColor" Value="#FFFFFF" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="CharacterSpacing" Value="0.5" />
+                <Setter Property="FontFamily" Value="MontserratSemiBold.ttf#MontserratSemiBold" />
+            </Style>
+            <Style x:Key="LblBoldBlackStl" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="TextColor" Value="#010101" />
+                <Setter Property="FontFamily" Value="MontserratSemiBold.ttf#MontserratSemiBold" />
+            </Style>
+
+            <Style x:Key="BtnSubmitStl" TargetType="Button">
+                <Setter Property="HorizontalOptions" Value="Fill" />
+                <Setter Property="CharacterSpacing" Value="0.1"/>
+                <Setter Property="TextColor" Value="#1976d3" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="BackgroundColor" Value="#FFFFFF" />                
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="Margin" Value="0"/>
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="FontFamily" Value="MontserratBold.ttf#MontserratBold" />
+                <Setter Property="HeightRequest" Value="40"></Setter>
+                <Setter Property="WidthRequest" Value="100"></Setter>
+            </Style>
+            <Style x:Key="PickerRegularStl" TargetType="Picker">
+                <Setter Property="TitleColor" Value="#010101" />
+                <Setter Property="TextColor" Value="#010101" />
+                <Setter Property="CharacterSpacing" Value="0.5" />
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="FontFamily" Value="MontserratRegular.ttf#MontserratRegular" />
+            </Style>
+            <Style x:Key="EntryRegularStl" TargetType="Entry">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontFamily" Value="MontserratRegular.ttf#MontserratRegular" />
+                <Setter Property="CharacterSpacing" Value="0.5"/>
+                <Setter Property="Margin" Value="0"/>
+            </Style>
+            <Style x:Key="LblBoldPageTitleStl" TargetType="Label">
+                <Setter Property="TextColor" Value="#FFFFFF" />
+                <Setter Property="FontFamily" Value="MontserratSemiBold.ttf#MontserratSemiBold" />
+                <Setter Property="FontSize" Value="20"/>
+            </Style>
+            <Style x:Key="LblListBoldTitleStl" TargetType="Label">
+                <Setter Property="TextColor" Value="#010101" />
+                <Setter Property="FontFamily" Value="MontserratSemiBold.ttf#MontserratSemiBold" />
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="FontSize" Value="16"/>
+            </Style>
+            <Style x:Key="LblPlaceHolderStl" TargetType="Label">
+                <Setter Property="TextColor" Value="#7E808C" />
+                <Setter Property="Padding" Value="3,0,0,0"/>
+                <Setter Property="Margin" Value="0"/>
+                <Setter Property="FontFamily" Value="MontserratRegular.ttf#MontserratRegular" />
+                <Setter Property="HorizontalOptions" Value="Fill"/>
+                <Setter Property="VerticalOptions" Value="End"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="CharacterSpacing" Value="0.5"/>
+            </Style>
+            <Style x:Key="BtnRegularWhiteStl" TargetType="Button">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="CharacterSpacing" Value="0.1"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="Margin" Value="0"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="BackgroundColor" Value="#FFFFFF"/>
+                <Setter Property="FontFamily" Value="MontserratBold.ttf#MontserratBold" />
+            </Style>
+
+            <!--GRID COLUMN SPACING-->
+            <Style TargetType="Grid">
+                <Setter Property="ColumnSpacing" Value="0" />
+                <Setter Property="RowSpacing" Value="0" />
+            </Style>
+
+            <!--NAVIGATION STYLE-->
+
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="#1976d3"/>
+                <Setter Property="BarTextColor" Value="#FFFFFF"/>
+            </Style>
+
+            <!--SLIDER STYLE-->
+
+            <Style TargetType="Slider">
+                <Setter Property="Margin" Value="20, 0" />
+                <Setter Property="ThumbColor" Value="#1976d3"/>
+                <Setter Property="HeightRequest" Value="20"/>
+                <Setter Property="WidthRequest" Value="20"/>
+            </Style>
+
+            <!--SWITCH STYLE-->
+
+            <Style TargetType="Switch">
+                <Setter Property="OnColor" Value="#1976d3" />
+                <Setter Property="ThumbColor" Value="#FFFFFF" />
+            </Style>
+
+            <!--New Design Starts-->
+
+            <Style x:Key="btnBlueStl" TargetType="Button">
+                <Setter Property="HorizontalOptions" Value="Fill" />
+                <Setter Property="CharacterSpacing" Value="0.1"/>
+                <Setter Property="TextColor" Value="#FFFFFF" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="BackgroundColor" Value="#1976d3" />
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="WidthRequest" Value="115"/>
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="Margin" Value="0"/>
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="FontFamily" Value="MontserratBold.ttf#MontserratBold" />
+            </Style>
+
+            <Style x:Key="btnSignUpStl" TargetType="Button">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="CharacterSpacing" Value="0.1"/>
+                <Setter Property="TextColor" Value="#FFFFFF" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="BackgroundColor" Value="#009f76" />
+                <Setter Property="HeightRequest" Value="40"/>
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="Margin" Value="0"/>
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="FontFamily" Value="MontserratBold.ttf#MontserratBold" />
+            </Style>
+
+            <!--White-->
+
+            <Style x:Key="lblSemiBold12WhiteStl" TargetType="Label">
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="TextColor" Value="#FFFFFF" />
+                <Setter Property="FontFamily" Value="MontserratSemiBold.ttf#MontserratSemiBold"  />
+            </Style>
+            <Style x:Key="lblSemiBold14WhiteStl" TargetType="Label">
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="TextColor" Value="#FFFFFF" />
+                <Setter Property="FontFamily" Value="MontserratSemiBold.ttf#MontserratSemiBold"  />
+            </Style>
+            <Style x:Key="lblSemiBold16WhiteStl" TargetType="Label">
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="TextColor" Value="#FFFFFF" />
+                <Setter Property="FontFamily" Value="MontserratSemiBold.ttf#MontserratSemiBold"  />
+            </Style>
+            <Style x:Key="lblSemiBold20WhiteStl" TargetType="Label">
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="TextColor" Value="#FFFFFF" />
+                <Setter Property="FontFamily" Value="MontserratSemiBold.ttf#MontserratSemiBold"  />
+            </Style>
+            <Style x:Key="lblRegular14WhiteStl" TargetType="Label">
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="TextColor" Value="#FFFFFF" />
+                <Setter Property="FontFamily" Value="MontserratRegular.ttf#MontserratRegular"  />
+            </Style>
+
+            <!--Black-->
+
+            <Style x:Key="lblRegular12BlackStl" TargetType="Label">
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="TextColor" Value="#4b4c51" />
+                <Setter Property="FontFamily" Value="MontserratRegular.ttf#MontserratRegular"  />
+            </Style>
+            <Style x:Key="lblRegular14BlackStl" TargetType="Label">
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="TextColor" Value="#4b4c51" />
+                <Setter Property="FontFamily" Value="MontserratRegular.ttf#MontserratRegular"  />
+            </Style>
+            <Style x:Key="lblSemiBold12BlackStl" TargetType="Label">
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="TextColor" Value="#4b4c51" />
+                <Setter Property="FontFamily" Value="MontserratSemiBold.ttf#MontserratSemiBold"  />
+            </Style>
+            <Style x:Key="lblSemiBold14BlackStl" TargetType="Label">
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="TextColor" Value="#4b4c51" />
+                <Setter Property="FontFamily" Value="MontserratSemiBold.ttf#MontserratSemiBold"  />
+            </Style>
+            <Style x:Key="lblSemiBold20BlackStl" TargetType="Label">
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="TextColor" Value="#4b4c51" />
+                <Setter Property="FontFamily" Value="MontserratSemiBold.ttf#MontserratSemiBold"  />
+            </Style>
+            <Style x:Key="lblBold14BlackStl" TargetType="Label">
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="TextColor" Value="#4b4c51" />
+                <Setter Property="FontFamily" Value="MontserratBold.ttf#MontserratBold"  />
+            </Style>
+            <Style x:Key="lblBold16BlackStl" TargetType="Label">
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="TextColor" Value="#4b4c51" />
+                <Setter Property="FontFamily" Value="MontserratBold.ttf#MontserratBold"  />
+            </Style>
+            <Style x:Key="lblSemiBoldVehicleNameStl" TargetType="Label">
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                <Setter Property="TextColor" Value="#000" />
+                <Setter Property="FontFamily" Value="MontserratSemiBold.ttf#MontserratSemiBold" />
+            </Style>
+            <Style x:Key="lblSemiBoldVehicleNotextStl" TargetType="Label">
+                <Setter Property="FontSize" Value="10"/>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                <Setter Property="TextColor" Value="#a3a3a3" />
+                <Setter Property="FontFamily" Value="MontserratSemiBold.ttf#MontserratSemiBold" />
+            </Style>
+            <Style x:Key="lblBold20BlackStl" TargetType="Label">
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="TextColor" Value="#4b4c51" />
+                <Setter Property="FontFamily" Value="MontserratBold.ttf#MontserratBold"  />
+            </Style>
+            
+
+            <!--Grey-->
+
+            <Style x:Key="lblRegular10GreyStl" TargetType="Label">
+                <Setter Property="FontSize" Value="10"/>
+                <Setter Property="TextColor" Value="#a3a3a3" />
+                <Setter Property="FontFamily" Value="MontserratRegular.ttf#MontserratRegular"  />
+            </Style>
+            <Style x:Key="lblRegular12GreyStl" TargetType="Label">
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="TextColor" Value="#a3a3a3" />
+                <Setter Property="FontFamily" Value="MontserratRegular.ttf#MontserratRegular"  />
+            </Style>
+            <Style x:Key="lblRegular14GreyStl" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="TextColor" Value="#a3a3a3" />
+                <Setter Property="FontFamily" Value="MontserratRegular.ttf#MontserratRegular"  />
+            </Style>
+            <Style x:Key="lblRegular16GreyStl" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="TextColor" Value="#a3a3a3" />
+                <Setter Property="FontFamily" Value="MontserratRegular.ttf#MontserratRegular"  />
+            </Style>
+            <Style x:Key="lblRegular20GreyStl" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="TextColor" Value="#a3a3a3" />
+                <Setter Property="FontFamily" Value="MontserratRegular.ttf#MontserratRegular"  />
+            </Style>
+            <Style x:Key="lblSemiBold10GreyStl" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="FontSize" Value="10"/>
+                <Setter Property="TextColor" Value="#a3a3a3" />
+                <Setter Property="FontFamily" Value="MontserratSemiBold.ttf#MontserratSemiBold"  />
+            </Style>
+            <Style x:Key="lblSemiBold12GreyStl" TargetType="Label">
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="TextColor" Value="#a3a3a3" />
+                <Setter Property="FontFamily" Value="MontserratSemiBold.ttf#MontserratSemiBold"  />
+            </Style>
+            <Style x:Key="lblSemiBold14GreyStl" TargetType="Label">
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="TextColor" Value="#a3a3a3" />
+                <Setter Property="FontFamily" Value="MontserratSemiBold.ttf#MontserratSemiBold"  />
+            </Style>
+            <Style x:Key="lblSemiBold16GreyStl" TargetType="Label">
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="TextColor" Value="#a3a3a3" />
+                <Setter Property="FontFamily" Value="MontserratSemiBold.ttf#MontserratSemiBold"  />
+            </Style>
+            <Style x:Key="LblBoldGrey12Stl" TargetType="Label">
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="TextColor" Value="#a3a3a3" />
+                <Setter Property="FontFamily" Value="MontserratBold.ttf#MontserratBold" />
+            </Style>
+            <Style x:Key="lblBold14GreyStl" TargetType="Label">
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="TextColor" Value="#a3a3a3" />
+                <Setter Property="FontFamily" Value="MontserratBold.ttf#MontserratBold"  />
+            </Style>
+            <Style x:Key="lblBold16GreyStl" TargetType="Label">
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="TextColor" Value="#a3a3a3" />
+                <Setter Property="FontFamily" Value="MontserratBold.ttf#MontserratBold"  />
+            </Style>
+            <Style x:Key="lblBold20GreyStl" TargetType="Label">
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="TextColor" Value="#a3a3a3" />
+                <Setter Property="FontFamily" Value="MontserratBold.ttf#MontserratBold"  />
+            </Style>
+
+            <!--Blue-->
+
+            <Style x:Key="lblSemiBold10BlueStl" TargetType="Label">
+                <Setter Property="FontSize" Value="10"/>
+                <Setter Property="TextColor" Value="#1976d3" />
+                <Setter Property="FontFamily" Value="MontserratSemiBold.ttf#MontserratSemiBold"  />
+            </Style>
+            <Style x:Key="lblBold10BlueStl" TargetType="Label">
+                <Setter Property="FontSize" Value="10"/>
+                <Setter Property="TextColor" Value="#1976d3" />
+                <Setter Property="FontFamily" Value="MontserratBold.ttf#MontserratiBold"  />
+            </Style>
+            <Style x:Key="lblSemiBold12BlueStl" TargetType="Label">
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="TextColor" Value="#1976d3" />
+                <Setter Property="FontFamily" Value="MontserratSemiBold.ttf#MontserratSemiBold"  />
+            </Style>
+            <Style x:Key="lblSemiBold14BlueStl" TargetType="Label">
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="TextColor" Value="#1976d3" />
+                <Setter Property="FontFamily" Value="MontserratSemiBold.ttf#MontserratSemiBold"  />
+            </Style>
+            <Style x:Key="lblBold16BlueStl" TargetType="Label">
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="TextColor" Value="#1976d3" />
+                <Setter Property="FontFamily" Value="MontserratBold.ttf#MontserratBold"  />
+            </Style>
+            <Style x:Key="lblBold20BlueStl" TargetType="Label">
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="TextColor" Value="#1976d3" />
+                <Setter Property="FontFamily" Value="MontserratBold.ttf#MontserratBold"  />
+            </Style>
+
+            <!--Green-->
+
+            <Style x:Key="lblSemiBold10GreenStl" TargetType="Label">
+                <Setter Property="FontSize" Value="10"/>
+                <Setter Property="TextColor" Value="#009f76" />
+                <Setter Property="FontFamily" Value="MontserratSemiBold.ttf#MontserratSemiBold"  />
+            </Style>
+            <Style x:Key="lblSemiBold14GreenStl" TargetType="Label">
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="TextColor" Value="#009f76" />
+                <Setter Property="FontFamily" Value="MontserratSemiBold.ttf#MontserratSemiBold"  />
+            </Style>
+            <Style x:Key="lblBold12GreenStl" TargetType="Label">
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="TextColor" Value="#009f76" />
+                <Setter Property="FontFamily" Value="MontserratBold.ttf#MontserratBold"  />
+            </Style>
+
+            <Style x:Key="LblRegularBoldStl" TargetType="Label">
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="TextColor" Value="#000000" />
+                <Setter Property="CharacterSpacing" Value="0.1" />
+                <Setter Property="FontFamily" Value="MontserratBold.ttf#MontserratBold" />
+            </Style>
+
+            <Style x:Key="BtnHourStl" TargetType="Button">
+                <Setter Property="CharacterSpacing" Value="0.1"/>
+                <Setter Property="TextColor" Value="#010101" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="BorderColor" Value="#a3a3a3" />
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="HeightRequest" Value="40"/>
+                <Setter Property="WidthRequest" Value="40"/>
+                <Setter Property="CornerRadius" Value="30"/>
+                <Setter Property="BorderRadius" Value="50"/>
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="Margin" Value="0"/>
+                <Setter Property="FontFamily" Value="MontserratBold.ttf#MontserratBold" />
+            </Style>
+
+            <!--SessionHomeReceipt-->
+            <Style x:Key="LblLotNamesemiBoldStl" TargetType="Label">
+                <Setter Property="TextColor" Value="#4b4c51" />
+                <Setter Property="FontFamily" Value="MontserratSemiBold.ttf#MontserratSemiBold" />
+                <Setter Property="HorizontalOptions" Value="StartAndExpand"/>
+                <Setter Property="FontSize" Value="16"/>
+            </Style>
+            <Style x:Key="LblSHRBoldFromToStl" TargetType="Label">
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="TextColor" Value="#4b4c51" />
+                <Setter Property="FontFamily" Value="MontserratSemiBold.ttf#MontserratSemiBold" />
+            </Style>
+            <Style x:Key="LblSHRBoldFromToDateStl" TargetType="Label">
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="TextColor" Value="#4b4c51" />
+                <Setter Property="FontFamily" Value="MontserratBold.ttf#MontserratBold" />
+            </Style>
+            <Style x:Key="LblSHRBoldFromToTimeGreenStl" TargetType="Label">
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="TextColor" Value="#009f76" />
+                <Setter Property="FontFamily" Value="MontserratBold.ttf#MontserratBold" />
+            </Style>
+            <Style x:Key="LblSHRBoldFromToTimeRedStl" TargetType="Label">
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="TextColor" Value="#bf2c2c" />
+                <Setter Property="FontFamily" Value="MontserratBold.ttf#MontserratBold" />
+            </Style>
+            <Style x:Key="LblSHRBoldVehicletextStl" TargetType="Label">
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="TextColor" Value="#4b4c51" />
+                <Setter Property="FontFamily" Value="MontserratBold.ttf#MontserratBold" />
+            </Style>
+            <Style x:Key="LblSHRBoldVehicleNotextStl" TargetType="Label">
+                <Setter Property="FontSize" Value="10"/>
+                <Setter Property="TextColor" Value="#a3a3a3" />
+                <Setter Property="FontFamily" Value="MontserratSemiBold.ttf#MontserratSemiBold" />
+            </Style>
+            <Style x:Key="LblSHRBoldParkingFeeBlueStl" TargetType="Label">
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                <Setter Property="TextColor" Value="#1976d3" />
+                <Setter Property="FontFamily" Value="MontserratSemiBold.ttf#MontserratSemiBold" />
+            </Style>
+            <Style x:Key="LblDisclaimerRedStl" TargetType="Label">
+                <Setter Property="TextColor" Value="#bf2c2c" />
+                <Setter Property="FontFamily" Value="MontserratSemiBold.ttf#MontserratSemiBold" />
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="FontSize" Value="7"/>
+            </Style>
+            <Style x:Key="LblExpiredTimeStl" TargetType="Label">
+                <Setter Property="TextColor" Value="#4b4c51" />
+                <Setter Property="FontFamily" Value="MontserratBold.ttf#MontserratBold" />
+            </Style>
+            <Style x:Key="LblamountsfontStl" TargetType="Label">
+                <Setter Property="FontFamily" Value="MontserratBold.ttf#MontserratBold" />
+            </Style>
+            <!--SessionHomeReceipt-->
+
+
+            <!--Home Menu Start-->
+            <Style x:Key="lblMedium14BlackStl" TargetType="Label">
+                <Setter Property="TextColor" Value="#4b4c51" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontFamily" Value="MontserratMedium.ttf#MontserratMedium" />
+            </Style>
+
+            <!--Home Menu End-->
+
+
+            <!--My Passes-->
+            <Style x:Key="LblRegularWhiteStl" TargetType="Label">
+                <Setter Property="TextColor" Value="#FFFFFF" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="CharacterSpacing" Value="0.5" />
+                <Setter Property="FontFamily" Value="MontserratRegular.ttf#MontserratRegular" />
+            </Style>
+            <!--My Passes-->
+
+            <!--My Vehicles-->
+            <Style x:Key="LblBoldExtraLargeTitleStl" TargetType="Label">
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="HorizontalOptions" Value="Fill" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontFamily" Value="MontserratSemiBold.ttf#MontserratSemiBold" />
+            </Style>
+            <Style x:Key="LblRegularPageTitleStl" TargetType="Label">
+                <Setter Property="TextColor" Value="#010101" />
+                <Setter Property="FontFamily" Value="MontserratSemiBold.ttf#MontserratSemiBold" />
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="FontSize" Value="16"/>
+            </Style>
+            <Style x:Key="LblBoldVehicleNameStl" TargetType="Label">
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                <Setter Property="TextColor" Value="#4b4c51" />
+                <Setter Property="FontFamily" Value="MontserratSemiBold.ttf#MontserratSemiBold" />
+            </Style>
+            <Style x:Key="LblBoldVehicleNotextStl" TargetType="Label">
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                <Setter Property="TextColor" Value="#a3a3a3" />
+                <Setter Property="FontFamily" Value="MontserratSemiBold.ttf#MontserratSemiBold" />
+            </Style>
+            <!--My Vehicles-->
+
+            <!--MyProfile Page-->
+            <Style x:Key="LblPlaceHolderMyPrflStl" TargetType="Label">
+                <Setter Property="TextColor" Value="#4b4c51" />
+                <Setter Property="Padding" Value="3,0,0,0"/>
+                <Setter Property="Margin" Value="0"/>
+                <Setter Property="FontFamily" Value="MontserratRegular.ttf#MontserratRegular" />
+                <Setter Property="HorizontalOptions" Value="Fill"/>
+                <Setter Property="VerticalOptions" Value="End"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="CharacterSpacing" Value="0.5"/>
+            </Style>
+            <Style x:Key="EntryRegularMyPrflStl" TargetType="Entry">
+                <Setter Property="TextColor" Value="#4b4c51" />
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontFamily" Value="MontserratRegular.ttf#MontserratRegular" />
+                <Setter Property="CharacterSpacing" Value="0.5"/>
+                <Setter Property="Margin" Value="0"/>
+            </Style>
+            <Style x:Key="EntryRegularMyPrflDisableStl" TargetType="Entry">
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontFamily" Value="MontserratRegular.ttf#MontserratRegular" />
+                <Setter Property="CharacterSpacing" Value="0.5"/>
+                <Setter Property="Margin" Value="0"/>
+            </Style>
+            <!--MyProfile Page-->
+
+            <!--New Design Ends-->
+
+            <Style x:Key="LblPlaceHolderforAddVehicleStl" TargetType="Label">
+                <Setter Property="TextColor" Value="#a3a3a3" />
+                <Setter Property="Padding" Value="3,0,0,0"/>
+                <Setter Property="Margin" Value="0"/>
+                <Setter Property="FontFamily" Value="MontserratRegular.ttf#MontserratRegular" />
+                <Setter Property="HorizontalOptions" Value="Fill"/>
+                <Setter Property="VerticalOptions" Value="End"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="CharacterSpacing" Value="0.5"/>
+            </Style>
+
+            <Style x:Key="LblRegularGreyedStl" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="TextColor" Value="#FFFFFF" />
+                <Setter Property="FontFamily" Value="MontserratLight.ttf#MontserratLight" />
+            </Style>
+            <Style x:Key="LblSemiBoldBlackStl" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="TextColor" Value="#FFFFFF" />
+                <Setter Property="FontFamily" Value="MontserratBold.ttf#MontserratBold" />
+            </Style>
+
+            <!--My Passes Discount Lable-->
+            <Style x:Key="LblBoldDiscountBlackStl" TargetType="Label">              
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="TextColor" Value="#FFF" />
+                <Setter Property="FontFamily" Value="MontserratBold.ttf#MontserratBold" />
+            </Style>
+            <Style x:Key="LblBoldDiscountDigitStl" TargetType="Label">
+                <Setter Property="FontSize" Value="30"/>
+                <Setter Property="TextColor" Value="#000" />
+                <Setter Property="FontFamily" Value="MontserratBold.ttf#MontserratBold" />
+            </Style>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

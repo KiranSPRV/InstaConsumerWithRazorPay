@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ParkHyderabad.Behaviors"
+             x:Class="ParkHyderabad.TermsAndConditions"
+              NavigationPage.HasBackButton="True">
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Terms &amp; Conditions" Style="{StaticResource LblBoldPageTitleStl}" Margin="0,0,70,0" />
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#FFFFFF">
+            <AbsoluteLayout VerticalOptions="FillAndExpand">
+                <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" Padding="20">
+                    <ScrollView>
+                        <StackLayout Spacing="30">
+                            <StackLayout Spacing="20">
+                                <StackLayout Spacing="5">
+                                    <Label Text="Thank you for using our products and services ('Services')! The Services are provided by ParkHyderabad, A subsidiary of Zruti solutions private limited." Style="{StaticResource LblLargeGreyedStl}"></Label>
+                                    <Label Text="By using our Services, you are agreeing to these terms and our privacy policy." Style="{StaticResource LblLargeGreyedStl}"></Label>
+                                    <Label Text="We offer a variety of Services so sometimes additional terms may apply. Additional terms will be available with the relevant Services, and those additional terms will also become part of your agreement with us, if you use those Services. We may modify these terms or any additional terms that apply to a Service to, for example, reflect changes to the law or changes to our Services" Style="{StaticResource LblLargeGreyedStl}"></Label>
+                                </StackLayout>
+                                <StackLayout Spacing="10">
+                                    <Label HorizontalOptions="StartAndExpand" Text="Using our Services" Style="{StaticResource LblBoldLargeBlackLeftStl}"/>
+                                    <Label HorizontalOptions="StartAndExpand" Text="Using ParkHyderabad may include downloading software to your phone. You agree that we may automatically update that software, and these terms will apply to any updates." Style="{StaticResource LblLargeGreyedStl}"/>
+                                    <Label HorizontalOptions="StartAndExpand" Text="Parking Lot and parking restrictions (i.e. lot timings and other features) take precedence over any information that you receive from our App. Before booking your slot please make sure you are at the parking Lot." Style="{StaticResource LblLargeGreyedStl}"/>
+                                    <Label HorizontalOptions="StartAndExpand" Text="All applicable parking rules and regulations apply to you, and your use of the Services does not excuse you from following the rules." Style="{StaticResource LblLargeGreyedStl}"/>
+                                </StackLayout>
+                                <StackLayout Spacing="10">
+                                    <Label HorizontalOptions="StartAndExpand" Text="ParkHyderabad Account" Style="{StaticResource LblBoldLargeBlackLeftStl}"/>
+                                    <Label HorizontalOptions="StartAndExpand" Text="You will need an ParkHyderabad account in order to use some of our Services. You may create your own account, or your ParkHyderabad account may be assigned to you by an administrator, such as your employer. When you create your ParkHyderabad account, you must provide us with accurate and complete information. If you are using an ParkHyderabad account assigned to you by an administrator, different or additional terms may apply, and your administrator may be able to access or disable your account." Style="{StaticResource LblLargeGreyedStl}"/>
+                                </StackLayout>
+                                <StackLayout Spacing="10">
+                                    <Label HorizontalOptions="StartAndExpand" Text="Limited License to Use Our Services" Style="{StaticResource LblBoldLargeBlackLeftStl}"/>
+                                    <Label HorizontalOptions="StartAndExpand" Text="Subject to your compliance with these terms, ParkHyderabad grants you a limited, non-exclusive, non-sub licensable, revocable, non-transferable license to: (i) access and use our applications on your personal device solely in connection with your use of the Services; and (ii) access and use any content, information and related materials that may be made available through the Services, in each case solely for your personal, noncommercial use. Any rights not expressly granted herein are reserved by ParkHyderabad." Style="{StaticResource LblLargeGreyedStl}"/>
+                                </StackLayout>
+                                <StackLayout Spacing="10">
+                                    <Label HorizontalOptions="StartAndExpand" Text="Network Access and Devices" Style="{StaticResource LblBoldLargeBlackLeftStl}"/>
+                                    <Label HorizontalOptions="StartAndExpand" Text="Your mobile network's data and messaging rates and fees may apply if you access or use the Services from your device. You are responsible for acquiring and updating compatible hardware or devices necessary to access and use the Services and any updates. We do not guarantee that the Services will function on any particular hardware or devices. In addition, the Services may be subject to malfunctions and delays inherent in the use of the internet and electronic communications." Style="{StaticResource LblLargeGreyedStl}"/>
+                                </StackLayout>
+                                <StackLayout Spacing="10">
+                                    <Label HorizontalOptions="StartAndExpand" Text="Payment" Style="{StaticResource LblBoldLargeBlackLeftStl}"/>
+                                    <Label HorizontalOptions="StartAndExpand" Text="You understand that use of the Services may result in charges to you for the services you receive ('Charges'). We will receive and/or enable your payment of the applicable Charges for services obtained through your use of the Services. Charges will be inclusive of applicable taxes where required by law. Charges may include other applicable fees or processing fees." Style="{StaticResource LblLargeGreyedStl}"/>
+                                    <Label HorizontalOptions="StartAndExpand" Text="As between you and ParkHyderabad, ParkHyderabad reserves the right to establish, remove and/or revise Charges for any or all services obtained through the use of the Services at any time in our sole discretion. We will use reasonable efforts to inform you of Charges that may apply, provided that you will be responsible for Charges incurred under your account regardless of your awareness of such Charges or the amounts thereof." Style="{StaticResource LblLargeGreyedStl}"/>
+                                </StackLayout>
+                                <StackLayout Spacing="10">
+                                    <Label HorizontalOptions="StartAndExpand" Text="Penalties" Style="{StaticResource LblBoldLargeBlackLeftStl}"/>
+                                    <Label HorizontalOptions="StartAndExpand" Text="ParkHyderabad through its software, hardware and personal will provide surveillance to your parked vehicle. ParkHyderabad will send notifications informing the details of your parking events including the parking time, additional applicable charges on overstay and penalty charges incurred after due warnings. You are required to pay the applicable fees in order to continue parking in our lots." Style="{StaticResource LblLargeGreyedStl}"/>
+                                </StackLayout>
+                                <StackLayout Spacing="10">
+                                    <Label HorizontalOptions="StartAndExpand" Text="Intellectual Property" Style="{StaticResource LblBoldLargeBlackLeftStl}"/>
+                                    <Label HorizontalOptions="StartAndExpand" Text="We reserve all of our intellectual property rights in the Services. Trademarks and logos used" Style="{StaticResource LblLargeGreyedStl}"/>
+                                    <Label HorizontalOptions="StartAndExpand" Text="In connection with the Services are the trademarks of their respective owners. ParkHyderabad Operator and ParkHyderabad Consumer services are trademarks or registered trademarks of Zruti Solutions Private limited." Style="{StaticResource LblLargeGreyedStl}"/>
+                                </StackLayout>
+                                <StackLayout Spacing="10">
+                                    <Label HorizontalOptions="StartAndExpand" Text="Security" Style="{StaticResource LblBoldLargeBlackLeftStl}"/>
+                                    <Label HorizontalOptions="StartAndExpand" Text="We care about the security of our users. While we work to protect the security of your content and account, we can't guarantee that unauthorized third parties won't be able to defeat our security measures. We ask that you keep your password secure. Please notify us immediately of any unauthorized use of your account." Style="{StaticResource LblLargeGreyedStl}"/>
+                                </StackLayout>
+                                <StackLayout Spacing="10">
+                                    <Label HorizontalOptions="StartAndExpand" Text="Modifying and Terminating our Services" Style="{StaticResource LblBoldLargeBlackLeftStl}"/>
+                                    <Label HorizontalOptions="StartAndExpand" Text="We are constantly changing and improving our Services. We may add or remove functionalities or features, and we may suspend or stop a Service altogether." Style="{StaticResource LblLargeGreyedStl}"/>
+                                    <Label HorizontalOptions="StartAndExpand" Text="You can stop using our Services at any time. We may terminate or suspend your right to access or use our Services for any reason with or without notice. ParkHyderabad may also stop providing Services to you or add or create new limits to our Services at any time." Style="{StaticResource LblLargeGreyedStl}"/>
+                                </StackLayout>
+                                <StackLayout Spacing="10">
+                                    <Label HorizontalOptions="StartAndExpand" Text="Third-party Links" Style="{StaticResource LblBoldLargeBlackLeftStl}"/>
+                                    <Label HorizontalOptions="StartAndExpand" Text="Our Services may contain links to other websites and resources provided by third parties that are not owned or controlled by us. We have no control over the contents of those websites or resources. If you access any third-party content from our Services, you do so at your own risk and subject to the terms and conditions of use for such third-party content." Style="{StaticResource LblLargeGreyedStl}"/>
+                                </StackLayout>
+                                <StackLayout Spacing="10">
+                                    <Label HorizontalOptions="StartAndExpand" Text="Disclaimer of Warranties" Style="{StaticResource LblBoldLargeBlackLeftStl}"/>
+                                    <Label HorizontalOptions="StartAndExpand" Text="Our Services are provided on an 'as is' basis without warranty of any kind, whether express or implied, statutory or otherwise. We specifically disclaim any and all warranties of merchantability, non-infringement, and fitness for a particular purpose." Style="{StaticResource LblLargeGreyedStl}"/>
+                                </StackLayout>
+                            </StackLayout>
+                            <StackLayout Spacing="20">
+                                <StackLayout Spacing="5">
+                                    <Label Text="Privacy Policy" FontSize="30" Style="{StaticResource LblBoldLargeBlackLeftStl}"></Label>
+                                </StackLayout>
+                                <StackLayout Spacing="5">
+                                    <Label Text="ParkHyderabad and its associated websites and mobile applications are owned by ZRUTI SOLUTIONS PRIVATE LIMITED. ParkHyderabad ('we' or 'us') take the privacy of your information very seriously. This policy explains how and for what purposes we use the information collected about you through this site and App (referred to below as 'the Site', 'the App'). By using the App and Site and any services we offer via the App and Site, you are agreeing to be bound by this policy in respect of the information collected about you via this App and Site." Style="{StaticResource LblLargeGreyedStl}"></Label>
+                                </StackLayout>
+                                <StackLayout Spacing="10">
+                                    <Label HorizontalOptions="StartAndExpand" Text="Personal Information and how we use it" Style="{StaticResource LblBoldLargeBlackLeftStl}"/>
+                                    <Label HorizontalOptions="StartAndExpand" Text="We will collect the following personal information from you:" Style="{StaticResource LblLargeGreyedStl}"/>
+                                    <Label HorizontalOptions="StartAndExpand" Text="ParkHyderabad App requires information including name, Year of birth, Phone number and email ID together with vehicle info that you are intending to park." Style="{StaticResource LblLargeGreyedStl}"/>
+                                    <Label HorizontalOptions="StartAndExpand" Text="Billing information if you prefer to use credit card" Style="{StaticResource LblLargeGreyedStl}"/>
+                                    <Label HorizontalOptions="StartAndExpand" Text="Although it is not compulsory to give us all of the above information, it is only required if you are intending to park the vehicle using the ParkHyderabad App." Style="{StaticResource LblLargeGreyedStl}"/>
+                                </StackLayout>
+                                <StackLayout Spacing="10">
+                                    <Label HorizontalOptions="StartAndExpand" Text="We will use this information in order to:" Style="{StaticResource LblBoldLargeBlackLeftStl}"/>
+                                    <Label HorizontalOptions="StartAndExpand" Text="Find a parking spot for your vehicle closest to your location." Style="{StaticResource LblLargeGreyedStl}"/>
+                                    <Label HorizontalOptions="StartAndExpand" Text="Collect payment of parking space fees." Style="{StaticResource LblLargeGreyedStl}"/>
+                                    <Label HorizontalOptions="StartAndExpand" Text="Make general improvements to our App and Site and the services we offer;" Style="{StaticResource LblLargeGreyedStl}"/>
+                                    <Label HorizontalOptions="StartAndExpand" Text="Analyze how customers are making use of the App" Style="{StaticResource LblLargeGreyedStl}"/>
+                                    <Label HorizontalOptions="StartAndExpand" Text="Credit/debit card payments and all UPI payments will be collected by our payment processor. We do not store credit card numbers or CVV/CVV2 security numbers on our servers. In order for payments to be processed, you may need to provide some necessary details to our payment processing agent(s).Other than as set out above, we will not disclose any of your personal information without your permission unless we are required by law." Style="{StaticResource LblLargeGreyedStl}"/>                                  
+                                </StackLayout>
+                                <StackLayout Spacing="10">
+                                    <Label HorizontalOptions="StartAndExpand" Text="Information automatically collected:" Style="{StaticResource LblBoldLargeBlackLeftStl}"/>
+                                    <Label HorizontalOptions="StartAndExpand" Text="Log files/IP addresses. When you visit the App and Site our web server automatically records your IP address. This IP address is not linked to any of your personal information. We may also gather other non-personal information (from which we cannot identify you) such as the type of your internet browser which we use to provide you with a more effective service." Style="{StaticResource LblLargeGreyedStl}"/>
+                                    <Label HorizontalOptions="StartAndExpand" Text="Cookies. When you visit the App and Site we may store some information (commonly known as a 'cookie') on your computer. Cookies are specific to the server that created them and cannot be accessed by other servers, which means that they cannot be used to track your movements around the web. Passwords and credit card numbers are not stored in cookies. A cookie helps you get the best out of the Site and helps us to provide you with a more customized service. You can block or erase cookies from your computer if you want to, but certain parts of the Site are reliant on the use of cookies to operate correctly and may not work correctly if you set your browser not to accept cookies." Style="{StaticResource LblLargeGreyedStl}"/>
+                                </StackLayout>
+                                <StackLayout Spacing="10">
+                                    <Label HorizontalOptions="StartAndExpand" Text="Third party" Style="{StaticResource LblBoldLargeBlackLeftStl}"/>
+                                    <Label HorizontalOptions="StartAndExpand" Text="We cannot be responsible for the privacy policies and practices of other sites even if you access them using links from our Site and recommend that you check the policy of each site you visit and contact its owner or operator if you have any concerns or questions." Style="{StaticResource LblLargeGreyedStl}"/>
+                                    <Label HorizontalOptions="StartAndExpand" Text="In addition, if you linked to this Site from a third party site, we cannot be responsible for the privacy policies and practices of the owners or operators of that third party site and recommend that you check the policy of that third party site and contact its owner or operator if you have any concerns or questions." Style="{StaticResource LblLargeGreyedStl}"/>
+                                </StackLayout>   
+                            </StackLayout>
+                        </StackLayout>
+                    </ScrollView>
+                </StackLayout>
+            </AbsoluteLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>        

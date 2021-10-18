@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ParkHyderabad.MyPasses"
+             NavigationPage.HasBackButton="True"
+             xmlns:local="clr-namespace:ParkHyderabad.CustomXamarinElementsModel"
+             xmlns:controls="clr-namespace:ParkHyderabad.Helper" 
+             xmlns:ffSvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms" >
+    <NavigationPage.TitleView>
+        <Label Text="My Passes" Style="{StaticResource LblBoldPageTitleStl}" Margin="0,0,70,0" />
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#1976d3">
+            <AbsoluteLayout x:Name="absLayout"  VerticalOptions="FillAndExpand">
+                <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,0.8" AbsoluteLayout.LayoutFlags="All" Padding="20,0,20,20" Margin="0">
+                <ListView x:Name="lstVehiclePasses" RowHeight="250" BackgroundColor="Transparent" VerticalScrollBarVisibility="Always"
+                        SeparatorVisibility="None" ItemSelected="lstVehiclePasses_ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame BorderColor="#FFFFFF" BackgroundColor="#FFFFFF" Padding="0" CornerRadius="10" Margin="0,10,0,10">
+                                    <StackLayout Orientation="Horizontal" Padding="0" Margin="0" Spacing="25">
+                                        <Grid Margin="0" Padding="0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="225"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="4.5*"/>
+                                                <ColumnDefinition Width="5.5*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <StackLayout Grid.Column="0" Grid.Row="0" Orientation="Horizontal" BackgroundColor="Transparent" Padding="0" Margin="0" Spacing="0">
+                                                <controls:CustomFrame HasShadow="True" CornerRadius="10" BorderWidth="1" Padding="10" Margin="0" ShadowRadius="10">
+                                                    <StackLayout Spacing="0" Padding="0" Margin="0">
+                                                        <controls:CustomFrame BorderColor="#1976d3" Padding="5,15,5,15" Margin="0" CornerRadius="10,10,0,0" HasShadow="True">
+                                                            <StackLayout Orientation="Vertical" Padding="0" Margin="0" Spacing="0">
+                                                                <ffSvg:SvgCachedImage Margin="0" BackgroundColor="Transparent" HeightRequest="25" 
+                                                                        WidthRequest="25" HorizontalOptions="CenterAndExpand"  Source="{Binding VehicleImage}">
+                                                                </ffSvg:SvgCachedImage>
+                                                                <Label Text="{Binding Model}" XAlign="Center"
+                                                                        HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Style="{StaticResource LblBoldVehicleNameStl}"></Label>
+                                                                <Label Text="{Binding RegistrationNumber}" XAlign="Center"
+                                                                        HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Style="{StaticResource LblBoldVehicleNotextStl}"></Label>
+                                                                <Label Text="{Binding PassTypeName}" XAlign="Center" Style="{StaticResource lblBold20BlueStl}" Padding="0,5,0,0"
+                                                                        HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
+                                                            </StackLayout>
+                                                        </controls:CustomFrame>
+                                                        <controls:CustomFrame  BackgroundColor="#1976d3" CornerRadius="0,0,10,10" Padding="1" Margin="0" HasShadow="True">
+                                                            <StackLayout Orientation="Vertical" Padding="5" Margin="0" Spacing="0">
+                                                                <Label XAlign="Center" Text="{Binding SingleOrMulti}" TextColor="#FFFFFF" Style="{StaticResource lblRegular16GreyStl}"></Label>
+                                                                <Label XAlign="Center" Text="{Binding TotalAmount}" TextColor="#FFFFFF" Style="{StaticResource lblBold20GreyStl}"></Label>
+                                                            </StackLayout>
+                                                        </controls:CustomFrame>
+                                                    </StackLayout>
+                                                </controls:CustomFrame>
+                                            </StackLayout>
+                                            <StackLayout Spacing="5" Padding="20,5,0,0" Grid.Column="1" Grid.Row="0">
+                                                <Label Text="Selected Station(s)" Style="{StaticResource lblSemiBold14GreyStl}"></Label>
+                                                <ListView  ItemsSource="{Binding lstLocation}" HasUnevenRows="False" HorizontalOptions="Center" SeparatorVisibility="None" RowHeight="35" VerticalScrollBarVisibility="Always">
+                                                    <ListView.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <ViewCell>
+                                                                <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="8" Padding="5" Margin="0">
+                                                                    <Button Text="{Binding LocationNumber}" BorderColor="#1976d3" HeightRequest="20" WidthRequest="20" Padding="0" Margin="0" 
+                                                                            CornerRadius="150" VerticalOptions="Center" HorizontalOptions="Center" FontSize="12" TextColor="#1976d3" Style="{StaticResource BtnHourStl}"/>
+                                                                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                                                                        <Label Text="{Binding LocationName}" LineBreakMode="WordWrap" Style="{StaticResource lblSemiBold12BlueStl}" />
+                                                                    </StackLayout>
+                                                                </StackLayout>
+                                                            </ViewCell>
+                                                        </DataTemplate>
+                                                    </ListView.ItemTemplate>
+                                                </ListView>
+                                                <StackLayout Padding="0,5,0,5" Spacing="0">
+                                                    <Label Text="Valid from" Style="{StaticResource lblSemiBold12GreyStl}" />
+                                                    <Label Text="{Binding StartDateTime}" Style="{StaticResource lblSemiBold12BlueStl}" />
+                                                    <Label Text="Valid to" Style="{StaticResource lblSemiBold12GreyStl}" Padding="0,5,0,0"/>
+                                                    <Label Text="{Binding ExpiryDateTime}" Style="{StaticResource lblSemiBold12BlueStl}" />
+                                                    <Label Text="{Binding PassExpiryMessage}" Style="{StaticResource lblSemiBold12BlueStl}" TextColor="{Binding PassExpiryColor}" />
+                                                    </StackLayout>
+                                            </StackLayout>
+
+                                            <!--<StackLayout Grid.Column="1" Grid.Row="0" Orientation="Vertical" BackgroundColor="Transparent" Padding="0" Margin="0">
+                                                    <Label Text="Selected Station(s)" Style="{StaticResource lblSemiBold14GrayStl}"></Label>
+                                                    <ListView HasUnevenRows="False" HorizontalOptions="Center" RowHeight="30"         
+                                              SeparatorVisibility="Default" SeparatorColor="Transparent" ItemsSource="{Binding lstLocation}">
+                                                        <ListView.ItemTemplate>
+                                                            <DataTemplate>
+                                                                <ViewCell>
+                                                                    <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="15" Padding="15,10,10,10" Margin="0">
+                                                                        <Button Text="{Binding LocationNumber}" BorderColor="#1976d3" HeightRequest="10" WidthRequest="10" Style="{StaticResource BtnHourStl}" VerticalOptions="Center" />
+                                                                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                                                                            <Label Text="{Binding LocationName}" Style="{StaticResource lblRegular10BlueStl}" />
+                                                                        </StackLayout>
+                                                                    </StackLayout>
+                                                                </ViewCell>
+                                                            </DataTemplate>
+                                                        </ListView.ItemTemplate>
+                                                    </ListView>
+                                                    <StackLayout Padding="0,20,0,0">
+                                                        <Label Text="Valid From" Style="{StaticResource lblSemiBold12GrayStl}" />
+                                                        <Label Text="{Binding StartDateTime}" Style="{StaticResource lblRegular10BlueStl}" />
+                                                        <Label Text="Valid To" Style="{StaticResource lblSemiBold12GrayStl}" />
+                                                        <Label Text="{Binding ExpiryDateTime}" Style="{StaticResource lblRegular10BlueStl}" />
+                                                    </StackLayout>
+                                                </StackLayout>-->
+                                        </Grid>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                
+                
+            </StackLayout>
+                <StackLayout AbsoluteLayout.LayoutBounds="0,1,1,0.2" AbsoluteLayout.LayoutFlags="All">
+                    <StackLayout Orientation="Vertical" Spacing="5" Margin="20,0,20,0" VerticalOptions="StartAndExpand">
+                    <StackLayout Orientation="Horizontal">
+                        <Label x:Name="lblDiscountonPass1" Text="Get upto" Style="{StaticResource LblBoldDiscountBlackStl}" HorizontalOptions="EndAndExpand"></Label>
+                         <Label x:Name="lblDiscountonPass2" Text=" 30%" Style="{StaticResource LblBoldDiscountBlackStl}" HorizontalOptions="Center"></Label>
+                        <Label x:Name="lblDiscountonPass3" Text=" off" Style="{StaticResource LblBoldDiscountBlackStl}" HorizontalOptions="StartAndExpand"></Label>
+                    </StackLayout>
+                    <Label x:Name="lblDiscountonPass4" Text=" on your parking!" Style="{StaticResource LblBoldDiscountBlackStl}" HorizontalOptions="Center"></Label>
+                    <Button Text="Buy A Pass" x:Name="btnBuyaPass" Style="{StaticResource BtnSubmitStl}" Clicked="btn_BuyaPassClicked"></Button>
+                </StackLayout>
+                </StackLayout>
+                <ContentView x:Name="StklauoutactivityIndicator" BackgroundColor="Transparent"  IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout Orientation="Vertical" BackgroundColor="Transparent" HorizontalOptions="Center" VerticalOptions="Center">
+                    <ActivityIndicator  x:Name="activity" IsEnabled="True" IsVisible="False" IsRunning="False" HeightRequest="80" Color="#010101" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></ActivityIndicator>
+                    <Label x:Name="lblLoadingMsg" Text="Loading..."  Style="{StaticResource LblBoldBlackStl}" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand"></Label>
+                </StackLayout>
+            </ContentView>
+            </AbsoluteLayout>
+        </StackLayout>
+          
+    </ContentPage.Content>
+</ContentPage>

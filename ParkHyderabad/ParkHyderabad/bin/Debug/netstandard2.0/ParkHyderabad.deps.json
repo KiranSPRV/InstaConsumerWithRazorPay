@@ -1,0 +1,418 @@
+{
+  "runtimeTarget": {
+    "name": ".NETStandard,Version=v2.0/",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETStandard,Version=v2.0": {},
+    ".NETStandard,Version=v2.0/": {
+      "ParkHyderabad/1.0.0": {
+        "dependencies": {
+          "CarouselView.FormsPlugin": "5.2.0",
+          "NETStandard.Library": "2.0.3",
+          "Newtonsoft.Json": "12.0.3",
+          "Plugin.FirebasePushNotification": "3.3.10",
+          "Plugin.Permissions": "6.0.1",
+          "Xam.Plugin.Connectivity": "3.2.0",
+          "Xam.Plugin.Media": "5.0.1",
+          "Xam.Plugins.Forms.ImageCircle": "3.0.0.5",
+          "Xamarin.Essentials": "1.5.3.2",
+          "Xamarin.FFImageLoading": "2.4.11.982",
+          "Xamarin.FFImageLoading.Forms": "2.4.11.982",
+          "Xamarin.FFImageLoading.Svg": "2.4.11.982",
+          "Xamarin.FFImageLoading.Svg.Forms": "2.4.11.982",
+          "Xamarin.FFImageLoading.Transformations": "2.4.11.982",
+          "Xamarin.Forms": "5.0.0.1931",
+          "Xamarin.Forms.GoogleMaps": "3.3.0",
+          "Xamarin.Forms.GoogleMaps.Clustering": "1.1.0",
+          "Xamarin.Forms.Maps": "4.7.0.1142",
+          "Xamarin.Forms.Visual.Material": "5.0.0.1931"
+        },
+        "runtime": {
+          "ParkHyderabad.dll": {}
+        }
+      },
+      "CarouselView.FormsPlugin/5.2.0": {
+        "runtime": {
+          "lib/netstandard2.0/CarouselView.FormsPlugin.Abstractions.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Microsoft.NETCore.Platforms/1.1.0": {},
+      "NETStandard.Library/2.0.3": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0"
+        }
+      },
+      "Newtonsoft.Json/12.0.3": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.3.23909"
+          }
+        }
+      },
+      "Plugin.FirebasePushNotification/3.3.10": {
+        "runtime": {
+          "lib/netstandard2.0/Plugin.FirebasePushNotification.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.3.0.0"
+          }
+        }
+      },
+      "Plugin.Permissions/6.0.1": {
+        "dependencies": {
+          "Xamarin.Essentials": "1.5.3.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Plugin.Permissions.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "SkiaSharp/1.68.0": {
+        "runtime": {
+          "lib/netstandard1.3/SkiaSharp.dll": {
+            "assemblyVersion": "1.68.0.0",
+            "fileVersion": "1.68.0.0"
+          }
+        }
+      },
+      "System.Numerics.Vectors/4.5.0": {
+        "runtime": {
+          "lib/netstandard2.0/System.Numerics.Vectors.dll": {
+            "assemblyVersion": "4.1.4.0",
+            "fileVersion": "4.6.26515.6"
+          }
+        }
+      },
+      "Xam.Plugin.Connectivity/3.2.0": {
+        "dependencies": {
+          "NETStandard.Library": "2.0.3"
+        },
+        "runtime": {
+          "lib/netstandard1.0/Plugin.Connectivity.Abstractions.dll": {
+            "assemblyVersion": "3.2.0.0",
+            "fileVersion": "3.2.0.0"
+          },
+          "lib/netstandard1.0/Plugin.Connectivity.dll": {
+            "assemblyVersion": "3.2.0.0",
+            "fileVersion": "3.2.0.0"
+          }
+        }
+      },
+      "Xam.Plugin.Media/5.0.1": {
+        "dependencies": {
+          "Xamarin.Essentials": "1.5.3.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Plugin.Media.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Xam.Plugins.Forms.ImageCircle/3.0.0.5": {
+        "dependencies": {
+          "Xamarin.Forms": "5.0.0.1931"
+        },
+        "runtime": {
+          "lib/netstandard2.0/ImageCircle.Forms.Plugin.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Xamarin.Essentials/1.5.3.2": {
+        "dependencies": {
+          "System.Numerics.Vectors": "4.5.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Xamarin.Essentials.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Xamarin.FFImageLoading/2.4.11.982": {
+        "runtime": {
+          "lib/netstandard1.0/FFImageLoading.Platform.dll": {
+            "assemblyVersion": "2.4.11.982",
+            "fileVersion": "2.4.11.982"
+          },
+          "lib/netstandard1.0/FFImageLoading.dll": {
+            "assemblyVersion": "2.4.11.982",
+            "fileVersion": "2.4.11.982"
+          }
+        }
+      },
+      "Xamarin.FFImageLoading.Forms/2.4.11.982": {
+        "dependencies": {
+          "Xamarin.FFImageLoading": "2.4.11.982",
+          "Xamarin.Forms": "5.0.0.1931"
+        },
+        "runtime": {
+          "lib/netstandard1.0/FFImageLoading.Forms.dll": {
+            "assemblyVersion": "2.4.11.982",
+            "fileVersion": "2.4.11.982"
+          }
+        }
+      },
+      "Xamarin.FFImageLoading.Svg/2.4.11.982": {
+        "dependencies": {
+          "SkiaSharp": "1.68.0",
+          "Xamarin.FFImageLoading": "2.4.11.982"
+        },
+        "runtime": {
+          "lib/netstandard1.0/FFImageLoading.Svg.Platform.dll": {
+            "assemblyVersion": "2.4.11.982",
+            "fileVersion": "2.4.11.982"
+          }
+        }
+      },
+      "Xamarin.FFImageLoading.Svg.Forms/2.4.11.982": {
+        "dependencies": {
+          "Xamarin.FFImageLoading.Forms": "2.4.11.982",
+          "Xamarin.FFImageLoading.Svg": "2.4.11.982"
+        },
+        "runtime": {
+          "lib/netstandard1.0/FFImageLoading.Svg.Forms.dll": {
+            "assemblyVersion": "2.4.11.982",
+            "fileVersion": "2.4.11.982"
+          }
+        }
+      },
+      "Xamarin.FFImageLoading.Transformations/2.4.11.982": {
+        "dependencies": {
+          "Xamarin.FFImageLoading": "2.4.11.982"
+        },
+        "runtime": {
+          "lib/netstandard1.0/FFImageLoading.Transformations.dll": {
+            "assemblyVersion": "2.4.11.982",
+            "fileVersion": "2.4.11.982"
+          }
+        }
+      },
+      "Xamarin.Forms/5.0.0.1931": {
+        "runtime": {
+          "lib/netstandard2.0/Xamarin.Forms.Core.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "5.0.0.616"
+          },
+          "lib/netstandard2.0/Xamarin.Forms.Platform.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "5.0.0.616"
+          },
+          "lib/netstandard2.0/Xamarin.Forms.Xaml.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "5.0.0.616"
+          }
+        }
+      },
+      "Xamarin.Forms.GoogleMaps/3.3.0": {
+        "dependencies": {
+          "Xamarin.Forms": "5.0.0.1931"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Xamarin.Forms.GoogleMaps.dll": {
+            "assemblyVersion": "3.0.1.0",
+            "fileVersion": "3.0.1.0"
+          }
+        }
+      },
+      "Xamarin.Forms.GoogleMaps.Clustering/1.1.0": {
+        "dependencies": {
+          "Xamarin.Forms": "5.0.0.1931",
+          "Xamarin.Forms.GoogleMaps": "3.3.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Xamarin.Forms.GoogleMaps.Clustering.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Xamarin.Forms.Maps/4.7.0.1142": {
+        "dependencies": {
+          "Xamarin.Forms": "5.0.0.1931"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Xamarin.Forms.Maps.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "4.7.0.463"
+          }
+        }
+      },
+      "Xamarin.Forms.Visual.Material/5.0.0.1931": {
+        "dependencies": {
+          "Xamarin.Forms": "5.0.0.1931"
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ParkHyderabad/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CarouselView.FormsPlugin/5.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-h849lqz0wvmpyiXqCrN7EW+cCGqK5chcefCfS55CkoGMMQx238QWNknUTOl/CvIdZ4bgs0Oztb7kamYXDlQ5mQ==",
+      "path": "carouselview.formsplugin/5.2.0",
+      "hashPath": "carouselview.formsplugin.5.2.0.nupkg.sha512"
+    },
+    "Microsoft.NETCore.Platforms/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
+      "path": "microsoft.netcore.platforms/1.1.0",
+      "hashPath": "microsoft.netcore.platforms.1.1.0.nupkg.sha512"
+    },
+    "NETStandard.Library/2.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-st47PosZSHrjECdjeIzZQbzivYBJFv6P2nv4cj2ypdI204DO+vZ7l5raGMiX4eXMJ53RfOIg+/s4DHVZ54Nu2A==",
+      "path": "netstandard.library/2.0.3",
+      "hashPath": "netstandard.library.2.0.3.nupkg.sha512"
+    },
+    "Newtonsoft.Json/12.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
+      "path": "newtonsoft.json/12.0.3",
+      "hashPath": "newtonsoft.json.12.0.3.nupkg.sha512"
+    },
+    "Plugin.FirebasePushNotification/3.3.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-m2RokQa7jCSi0SVcz42AZk4btTGJneg0l56FfwgFswQ38Xkqj4OqCRr68y9lmh6y/tjdWKKkwYZK84YsVtRa0g==",
+      "path": "plugin.firebasepushnotification/3.3.10",
+      "hashPath": "plugin.firebasepushnotification.3.3.10.nupkg.sha512"
+    },
+    "Plugin.Permissions/6.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-na/0FNhyKmSicANWZMLSM0y/FW2AvLoawX3lsvBpELwP15sdJRyuBhRKk1OQjRoNrmTIewcON1tJFyydjMGWcA==",
+      "path": "plugin.permissions/6.0.1",
+      "hashPath": "plugin.permissions.6.0.1.nupkg.sha512"
+    },
+    "SkiaSharp/1.68.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ptuxAKk9FiClNnAgWM8hVMCYw/B0hUJWZ8W6efnIAtJmJn/Xl4jvxxDF5WOqfQYCLVzxXw5gvBPVxvTLblFp0g==",
+      "path": "skiasharp/1.68.0",
+      "hashPath": "skiasharp.1.68.0.nupkg.sha512"
+    },
+    "System.Numerics.Vectors/4.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-QQTlPTl06J/iiDbJCiepZ4H//BVraReU4O4EoRw1U02H5TLUIT7xn3GnDp9AXPSlJUDyFs4uWjWafNX6WrAojQ==",
+      "path": "system.numerics.vectors/4.5.0",
+      "hashPath": "system.numerics.vectors.4.5.0.nupkg.sha512"
+    },
+    "Xam.Plugin.Connectivity/3.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZV45TaBTCJg7XQNEl3fPyyJcuMMhdDEQ6BCLc/5pMuTv38M226ER0WTu5sbmba8jlliDuzeRqkRFHwrGdWAgyg==",
+      "path": "xam.plugin.connectivity/3.2.0",
+      "hashPath": "xam.plugin.connectivity.3.2.0.nupkg.sha512"
+    },
+    "Xam.Plugin.Media/5.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UUR31EEnhDVa4IXgVfQIAL3u9v6YAyppsb5UlO9MNJ4quGGkfcWX++JexjB1nMGqvCzsjAT2t32drKDIXoW4SQ==",
+      "path": "xam.plugin.media/5.0.1",
+      "hashPath": "xam.plugin.media.5.0.1.nupkg.sha512"
+    },
+    "Xam.Plugins.Forms.ImageCircle/3.0.0.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-59HyuAaUzuloQmu/PVCDCJQMRuuhqmIpCQ+d5hH5Qp8AZsa/vDi5ulrXDKRMZSZt/xbXsyZV+aZ/W/SZaYt2Mg==",
+      "path": "xam.plugins.forms.imagecircle/3.0.0.5",
+      "hashPath": "xam.plugins.forms.imagecircle.3.0.0.5.nupkg.sha512"
+    },
+    "Xamarin.Essentials/1.5.3.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BSLgDJUOPFRwTpQaftM+s4qb/MsTjrqXulEYDOcK6KF3i0Orf75zo3RwRfqnQ8WfpoEFxW/v0jgcPWCvOMgHxg==",
+      "path": "xamarin.essentials/1.5.3.2",
+      "hashPath": "xamarin.essentials.1.5.3.2.nupkg.sha512"
+    },
+    "Xamarin.FFImageLoading/2.4.11.982": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-M0sNIQgUPs+le6C2TS4RmZQAURnzaRVizRtnZIZ6/1//qGcEAtEXAGt/tBJz6I1zlP6XlMxq8io6b4sjFP5N9Q==",
+      "path": "xamarin.ffimageloading/2.4.11.982",
+      "hashPath": "xamarin.ffimageloading.2.4.11.982.nupkg.sha512"
+    },
+    "Xamarin.FFImageLoading.Forms/2.4.11.982": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7X4t3J1wJj0/0o8+vd91hzSYlrqEeMFC7Mj+0T8O+fcbRSHo/c+QbWscEQiT4AaKCwyO709xq+7aY2XXbK/H7g==",
+      "path": "xamarin.ffimageloading.forms/2.4.11.982",
+      "hashPath": "xamarin.ffimageloading.forms.2.4.11.982.nupkg.sha512"
+    },
+    "Xamarin.FFImageLoading.Svg/2.4.11.982": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-acXrd+afkdQTXy24+/ZPY4W2z3/Yb3LyvQy/I+yeaV0X6bDWQ+niAUvxfyd3/ulbLvvPJzI2QT+bAcRXZo0Ztw==",
+      "path": "xamarin.ffimageloading.svg/2.4.11.982",
+      "hashPath": "xamarin.ffimageloading.svg.2.4.11.982.nupkg.sha512"
+    },
+    "Xamarin.FFImageLoading.Svg.Forms/2.4.11.982": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-CniN9JB2/iKZivEbHIZaiueoxwxML0fmmiPlw2AnmjzJE8Dcth23Hl++BG7Y61FZMuEqkfsntGsrG9w6PsAt6w==",
+      "path": "xamarin.ffimageloading.svg.forms/2.4.11.982",
+      "hashPath": "xamarin.ffimageloading.svg.forms.2.4.11.982.nupkg.sha512"
+    },
+    "Xamarin.FFImageLoading.Transformations/2.4.11.982": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cNG6zhiEBTENAGgIc9lY54YMJ0tg2dJ9+tj8tYgrOEQT8gxlj3OUzzNWZgaQWpcx28y5iIt/qM+Bd6jUwtAn1Q==",
+      "path": "xamarin.ffimageloading.transformations/2.4.11.982",
+      "hashPath": "xamarin.ffimageloading.transformations.2.4.11.982.nupkg.sha512"
+    },
+    "Xamarin.Forms/5.0.0.1931": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5xe9Oxtx2lHC0pinXGRLoUMEav3qxdtNemDF1UxCcxHcwv/Zcso2LhYw1LnemYhtESa6QGOD8dGM31A2pmteVg==",
+      "path": "xamarin.forms/5.0.0.1931",
+      "hashPath": "xamarin.forms.5.0.0.1931.nupkg.sha512"
+    },
+    "Xamarin.Forms.GoogleMaps/3.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-C1wutzR7wLgUQuiG1NgArab0X02DGOKWW10+uLBUJE+Cac0+8J/TlLVqdqEl82BDGl3n71zmiLnHd5AZlrFEfw==",
+      "path": "xamarin.forms.googlemaps/3.3.0",
+      "hashPath": "xamarin.forms.googlemaps.3.3.0.nupkg.sha512"
+    },
+    "Xamarin.Forms.GoogleMaps.Clustering/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-vbkeRVTrJcA4m7maOJbTVdNixkDuOeebAX7ULDwSemgN8LSNiU+hmgi/cWngSn8FGBSJl2RMHpbnuJQcrOZIqg==",
+      "path": "xamarin.forms.googlemaps.clustering/1.1.0",
+      "hashPath": "xamarin.forms.googlemaps.clustering.1.1.0.nupkg.sha512"
+    },
+    "Xamarin.Forms.Maps/4.7.0.1142": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FUseIALRDBNnQVYX+VgRCdLou8mkhe81d7UoVrvUAbVmuaimPtbPb66eSnxyRmg/QXDY85oWI2CwqZaYBxZNhw==",
+      "path": "xamarin.forms.maps/4.7.0.1142",
+      "hashPath": "xamarin.forms.maps.4.7.0.1142.nupkg.sha512"
+    },
+    "Xamarin.Forms.Visual.Material/5.0.0.1931": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-PqCKVLvreLJB6cT6hGJMyLWGvCubuwjgEMATCct1VqeAfMdTQOqnKBxJDVut2uSQ83w89gIWRwZguka4eorLQw==",
+      "path": "xamarin.forms.visual.material/5.0.0.1931",
+      "hashPath": "xamarin.forms.visual.material.5.0.0.1931.nupkg.sha512"
+    }
+  }
+}

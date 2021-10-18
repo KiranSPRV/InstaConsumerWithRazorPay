@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "7420635500",
+    "project_id": "parkhyderabad-1f889",
+    "storage_bucket": "parkhyderabad-1f889.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:7420635500:android:b118660f87151c2ef06b49",
+        "android_client_info": {
+          "package_name": "com.sprvtec.ParkHyderabad"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "7420635500-jn70b2edmpcvgasumt65a2bbo7dfvu4q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCN_LKGvFz-HSNIuZ6FxLkd2f4bTSmeHSY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "7420635500-jn70b2edmpcvgasumt65a2bbo7dfvu4q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

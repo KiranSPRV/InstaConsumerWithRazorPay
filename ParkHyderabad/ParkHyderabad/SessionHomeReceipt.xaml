@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ffSvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"               
+             x:Class="ParkHyderabad.SessionHomeReceipt"             
+             NavigationPage.HasBackButton="False"
+             x:Name="CurrentPage"
+             xmlns:controls="clr-namespace:ParkHyderabad.Helper">
+    <NavigationPage.TitleView >
+        <Label Text="You parked here" Style="{StaticResource LblBoldPageTitleStl}" HorizontalOptions="Center" Margin="0,0,40,0" />
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#1976d3" Margin="0" Padding="0">
+            <ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand" 
+                        VerticalScrollBarVisibility="Always" Padding="0" Margin="0">
+                <StackLayout BackgroundColor="#1976d3" Margin="0" Padding="0">
+                    <StackLayout Padding="10,20,10,10">
+                        <AbsoluteLayout x:Name="absLayout" Margin="0" BackgroundColor="Transparent"
+                                    AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All">
+                            <Frame CornerRadius="10" Margin="10,20,10,20" BackgroundColor="#FFFFFF" HorizontalOptions="FillAndExpand" 
+                               AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All" Padding="5">
+                                <StackLayout Padding="10,35,10,20" HorizontalOptions="FillAndExpand" BackgroundColor="Transparent">
+                                    <StackLayout Spacing="10">
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="0" Padding="0" Margin="0">
+                                            <StackLayout HorizontalOptions="FillAndExpand" Spacing="0" Padding="0" Margin="0">  
+                                                <StackLayout Orientation="Horizontal" Spacing="5" HorizontalOptions="FillAndExpand">                                                    
+                                                    <StackLayout Orientation="Vertical" Spacing="0" HorizontalOptions="FillAndExpand">
+                                                        <Label x:Name="lblLotName" Text="Chikkadpally - A1" Style="{StaticResource LblLotNamesemiBoldStl}"></Label>
+                                                    </StackLayout>
+                                                    <ffSvg:SvgCachedImage BackgroundColor="Transparent" HeightRequest="25" WidthRequest="25" 
+                                                      Source="resource://ParkHyderabad.Resources.favoritiesiconselect.svg"  VerticalOptions="Center"/>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal" Spacing="5" Padding="0" Margin="0">
+                                                    <ffSvg:SvgCachedImage BackgroundColor="Transparent" HeightRequest="8" WidthRequest="8" 
+                                                                            Source="resource://ParkHyderabad.Resources.addressicon.svg"/>
+                                                    <Label x:Name="lblAddress" MaxLines="1" LineBreakMode="TailTruncation" Text="Chikkadpally - A1 PASS CHECK CHECK IN LOT Chikkadpally - A1 PASS CHECK CHECK IN LOT - A1 PASS CHECK CHECK IN LOT - A1 PASS CHECK CHECK IN LOT - A1 PASS CHECK CHECK IN LOT" Style="{StaticResource lblSemiBold10GreyStl}"></Label>
+                                                  </StackLayout>
+                                            </StackLayout>                                          
+                                        </StackLayout>                                       
+                                        <StackLayout Orientation="Horizontal" Spacing="0">
+                                            <Frame HorizontalOptions="FillAndExpand" CornerRadius="4" Padding="5" BorderColor="#efefef" BackgroundColor="#FFFFFF">
+                                                <StackLayout Spacing="5" >
+                                                    <Label Text="FROM" Style="{StaticResource LblSHRBoldFromToStl}" HorizontalOptions="Center"/>
+                                                    <Label x:Name="lblFrom" XAlign="Center" LineBreakMode="WordWrap" Style="{StaticResource LblSHRBoldFromToDateStl}" />
+                                                    <Label x:Name="lblFromTime" HorizontalOptions="Center" Text="10:20 AM" Style="{StaticResource LblSHRBoldFromToTimeGreenStl}" />
+                                                </StackLayout>
+                                            </Frame>
+                                            <Frame HorizontalOptions="FillAndExpand" CornerRadius="4" Padding="5" BorderColor="#efefef" BackgroundColor="#FFFFFF">
+                                                <StackLayout Spacing="5"  >
+                                                    <Label  Text="TO" Style="{StaticResource LblSHRBoldFromToStl}" HorizontalOptions="Center"/>
+                                                    <Label x:Name="lblTo" XAlign="Center" LineBreakMode="WordWrap" Style="{StaticResource LblSHRBoldFromToDateStl}" />
+                                                    <Label x:Name="lblToTime" HorizontalOptions="Center" Text="10:20 AM" Style="{StaticResource LblSHRBoldFromToTimeRedStl}" />
+                                                </StackLayout>
+                                            </Frame>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" Spacing="0" Padding="0">
+                                            <StackLayout Orientation="Horizontal" Spacing="10" HorizontalOptions="StartAndExpand">
+                                                <ffSvg:SvgCachedImage x:Name="imgVehicle" BackgroundColor="Transparent" HeightRequest="25" WidthRequest="25" 
+                                                        VerticalOptions="Center"/>
+                                                <StackLayout Orientation="Vertical" Spacing="0">
+                                                    <Label x:Name="lblModel" Style="{StaticResource LblSHRBoldVehicletextStl}" HorizontalOptions="StartAndExpand"></Label>
+                                                    <Label x:Name="lblRegistrationNumber" Style="{StaticResource LblSHRBoldVehicleNotextStl}" HorizontalOptions="StartAndExpand"></Label>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </StackLayout>
+                                        <StackLayout x:Name="stkParkingFee" Padding="5,5,0,0" Orientation="Horizontal" Spacing="0">
+                                            <ffSvg:SvgCachedImage BackgroundColor="Transparent" HeightRequest="10" WidthRequest="10" VerticalOptions="Center"
+                                                       Source="resource://ParkHyderabad.Resources.inrblue.svg"/>
+                                            <StackLayout Orientation="Horizontal" Spacing="5" HorizontalOptions="StartAndExpand" Padding="5,0,0,0">
+                                                <Label x:Name="lblParkingFee" Style="{StaticResource LblSHRBoldParkingFeeBlueStl}" ></Label>
+                                                <Label x:Name="lblPaymentType" Style="{StaticResource lblSemiBold10GreyStl}" Margin="0,2,0,0"></Label>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </StackLayout>
+                                    <StackLayout Padding="0,10,0,5" Orientation="Vertical" Spacing="0" HorizontalOptions="FillAndExpand">
+                                        <Frame HasShadow="False" CornerRadius="10" HeightRequest="40" BorderColor="#efefef" HorizontalOptions="FillAndExpand">
+                                            <StackLayout Padding="0" Orientation="Vertical" Spacing="0" HorizontalOptions="FillAndExpand">
+                                                <Label x:Name="lblSpotExpiry" Text="Spot Expires In" Style="{StaticResource lblSemiBold12GreyStl}" 
+                                                    HorizontalOptions="CenterAndExpand" Margin="0"></Label>
+                                                <Label x:Name="lblExpiryTime" FontSize="23" TextColor="#4b4c51" 
+                                                  HorizontalOptions="CenterAndExpand" Style="{StaticResource LblExpiredTimeStl}"></Label>
+                                            </StackLayout>
+                                        </Frame>
+                                    </StackLayout>
+                                    <Frame HasShadow="False" CornerRadius="10" HeightRequest="50" BorderColor="#efefef" Margin="0" Padding="5,15,5,15">
+                                        <StackLayout x:Name="stkClampDetails" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" 
+                                                 VerticalOptions="CenterAndExpand" Spacing="10">
+                                            <StackLayout Spacing="0">
+                                                <Label x:Name="lblOverStayFee" FontSize="24" 
+                                                    HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Style="{StaticResource LblamountsfontStl}"/>
+                                                <Label Text="Overstay Fee"  HorizontalOptions="CenterAndExpand" VerticalOptions="End"
+                                                   Style="{StaticResource lblSemiBold10GreyStl}"/>
+                                            </StackLayout>
+                                            <Label Text="+" FontSize="22"  HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" Margin="0,0,0,0"/>
+                                            <StackLayout Spacing="0">
+                                                <Label x:Name="lblClampFee" TextColor="#bf2c2c" FontSize="24"
+                                                     HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"  Style="{StaticResource LblamountsfontStl}"/>
+                                                <Label Text="Clamp Fee" HorizontalOptions="CenterAndExpand" VerticalOptions="End" 
+                                                   Style="{StaticResource lblSemiBold10GreyStl}"/>
+                                            </StackLayout>
+                                            <Label Text="=" FontSize="22"  HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" Margin="0,0,0,0"/>
+                                            <StackLayout Spacing="0" Padding="10,0,0,0">
+                                                <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" Spacing="0">
+                                                    <Label Text="₹" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                                                        TextColor="#2ECC71"  FontSize="24" Margin="0" Style="{StaticResource LblamountsfontStl}"/>
+                                                    <Label x:Name="lblTotal" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                                                        TextColor="#2ECC71"  FontSize="22"  Style="{StaticResource LblamountsfontStl}"/>
+                                                    <Label Text="/-" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"
+                                                        TextColor="#2ECC71"  FontSize="24" Style="{StaticResource LblamountsfontStl}"/>
+                                                </StackLayout>
+                                                <Label Text="Total" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                                                   Style="{StaticResource lblSemiBold10GreyStl}"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Frame>
+                                    <StackLayout x:Name="stkClampWarning" IsVisible="False">
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" Padding="0,3,0,3">
+                                            <Label Text="Clamp Reason : " Style="{Binding lblSemiBold14BlackStl}" />
+                                            <Label x:Name="lblClampReason" TextColor="#bf2c2c" Style="{Binding lblRegular14GreyStl}" />
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" Padding="0,0,0,3">
+                                            <Label x:Name="lblWarning" TextColor="#bf2c2c" Style="{Binding lblRegular14GreyStl}"></Label>
+                                        </StackLayout>
+                                    </StackLayout>
+                                    <StackLayout x:Name="stkSupervisor" IsVisible="False" Orientation="Horizontal" HorizontalOptions="StartAndExpand" Padding="0,5,0,5">
+                                        <Label Text="Contact : " Style="{Binding lblSemiBold14BlackStl}" />
+                                        <Label x:Name="lblSupervisor" TextColor="#1976d3" FontSize="16" Style="{Binding lblSemiBold14BlackStl}"></Label>
+                                        <Label Text=" , " FontSize="16" Style="{Binding lblSemiBold14BlackStl}"></Label>
+                                        <Label x:Name="lblPhoneNumber" TextDecorations="Underline" FontSize="16" Style="{Binding lblRegular14BlackStl}">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="lblMakeACall"></TapGestureRecognizer>
+                                            </Label.GestureRecognizers>
+                                        </Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label XAlign="Start" Padding="0,5,0,5" Text="* DO NOT CHECK OUT BEFORE YOU LEAVE THE LOT" CharacterSpacing="0"
+                                                   Style="{StaticResource LblDisclaimerRedStl}" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                            <RelativeLayout AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.29,0,100,50">
+                                <Frame HasShadow="True" CornerRadius="30" BorderColor="#f4f4f4" Padding="15" Margin="0">
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" BackgroundColor="Transparent" Spacing="10">
+                                        <ffSvg:SvgCachedImage x:Name="DisabledParking" Aspect="AspectFit" Margin="0" BackgroundColor="Transparent" HeightRequest="20" 
+                                            WidthRequest="20" VerticalOptions="Center" />
+                                        <ffSvg:SvgCachedImage x:Name="EvCharging" Aspect="AspectFit" Margin="0" BackgroundColor="Transparent" HeightRequest="20" 
+                                             WidthRequest="20" VerticalOptions="Center" />
+                                        <ffSvg:SvgCachedImage x:Name="CoveredParking" Aspect="AspectFit" Margin="0" BackgroundColor="Transparent" HeightRequest="20" 
+                                             WidthRequest="20" VerticalOptions="Center" />
+                                        <ffSvg:SvgCachedImage x:Name="BikeWash" Aspect="AspectFit" Margin="0" BackgroundColor="Transparent" HeightRequest="20" 
+                                             WidthRequest="20" VerticalOptions="Center" />
+                                        <ffSvg:SvgCachedImage x:Name="CarWash" Aspect="AspectFit" Margin="0" BackgroundColor="Transparent" HeightRequest="20" 
+                                             WidthRequest="20" VerticalOptions="Center" />
+                                        <ffSvg:SvgCachedImage x:Name="Mechanic" Aspect="AspectFit" Margin="0" BackgroundColor="Transparent" HeightRequest="20"
+                                             WidthRequest="20" VerticalOptions="Center" />
+                                    </StackLayout>
+                                </Frame>
+                            </RelativeLayout>
+                            <Button Text="Extend Time"  BackgroundColor="#2dcc70" CornerRadius="35" TextColor="#fff"
+                           AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.15,1,125,40" 
+                           Clicked="stk_ExtendTimeTapped"/>
+                            <Button Text="Check Out"  CornerRadius="35" BackgroundColor="#eeb042" TextColor="#fff"
+                           AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.85,1,125,40" Clicked="stk_CheckOutTapped"/>
+                        </AbsoluteLayout>
+                        <ContentView x:Name="StklauoutactivityIndicator" BackgroundColor="Transparent"  IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                            <StackLayout Orientation="Vertical" BackgroundColor="Transparent" HorizontalOptions="Center" VerticalOptions="Center">
+                                <ActivityIndicator x:Name="activity" IsEnabled="True" IsVisible="False" IsRunning="False" HeightRequest="80" Color="#010101" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></ActivityIndicator>
+                                <Label x:Name="lblLoadingMsg" Text="Loading..." Style="{StaticResource LblBoldBlackStl}" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand"></Label>
+                            </StackLayout>
+                        </ContentView>
+                    </StackLayout>
+                    <StackLayout Spacing="5" VerticalOptions="End" Padding="0,0,0,20">
+                        <Label x:Name="OrderID" TextColor="#FFFFFF" XAlign="Center" ></Label>
+                        <Image BackgroundColor="Transparent" Source="qr_black.png" HeightRequest="100"></Image>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

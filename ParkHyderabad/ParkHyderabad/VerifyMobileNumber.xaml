@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ParkHyderabad.Helper"
+             x:Class="ParkHyderabad.VerifyMobileNumber"             
+             NavigationPage.HasBackButton="True">
+    <NavigationPage.TitleView BackgroundColor="#1976d3" TextColour="#FFFFFF">
+        <Label Text=""  Style="{StaticResource LblBoldPageTitleStl}"  Margin="0,0,70,0"/>
+    </NavigationPage.TitleView>
+    <StackLayout BackgroundColor="#1976d3">
+        <AbsoluteLayout x:Name="absLayout">
+            <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" Margin="15,10,15,10">               
+                <StackLayout>
+                    <StackLayout Spacing="10" Padding="10,40,10,10">
+                        <Label x:Name="oops" Text="Your Phone Number" Style="{StaticResource LblBoldExtraLargeStl}"></Label>
+                        <Label x:Name="dispalytext" Text="Please enter your mobile number below"
+                       XAlign="Center" Margin="10,0,10,0" Style="{StaticResource LblRegularGreyedStl}" CharacterSpacing="0.5" ></Label>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Padding="25,47,25,10">
+                    <local:CustomEntry Keyboard="Numeric" Style="{StaticResource EntryRegularStl}" x:Name="txtPhoneNumber" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"
+                        MaxLength="10"/>
+                </StackLayout>
+                <StackLayout  Orientation="Vertical"  VerticalOptions="CenterAndExpand" Padding="10,60,10,10">
+                    <Button x:Name="btnProceed" Text="Proceed" Style="{StaticResource BtnSubmitStl}"
+                            Clicked="btn_ProceedClicked"/>
+                </StackLayout>
+            </StackLayout>
+            <ContentView x:Name="StklauoutactivityIndicator" BackgroundColor="Transparent"  IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout Orientation="Vertical" BackgroundColor="Transparent" HorizontalOptions="Center" VerticalOptions="Center">
+                    <ActivityIndicator  x:Name="activity" IsEnabled="True" IsVisible="False" IsRunning="False" HeightRequest="80" Color="#010101" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></ActivityIndicator>
+                    <Label x:Name="lblLoadingMsg" Text="Loading..."  Style="{StaticResource LblBoldBlackStl}" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand"></Label>
+                </StackLayout>
+            </ContentView>
+        </AbsoluteLayout>
+    </StackLayout>
+</ContentPage>

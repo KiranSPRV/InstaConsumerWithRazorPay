@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ParkHyderabad.ExtendSession"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"  
+             xmlns:ffSvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"               
+             xmlns:ffTrans="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             xmlns:controls="clr-namespace:ParkHyderabad.Helper" 
+             xmlns:control="clr-namespace:ParkHyderabad.Controls"  
+             NavigationPage.HasBackButton="True">
+    <NavigationPage.TitleView>
+        <Label Text="Extend Session" Style="{StaticResource LblBoldPageTitleStl}" />
+    </NavigationPage.TitleView>
+    <StackLayout BackgroundColor="#1976d3" Padding="0" Margin="0" Spacing="0">
+        <AbsoluteLayout BackgroundColor="#1976d3" x:Name="absLayout" VerticalOptions="FillAndExpand" Padding="0" Margin="0">
+            <Frame CornerRadius="10" Margin="20,30,20,20" BackgroundColor="#FFFFFF" HorizontalOptions="FillAndExpand" 
+                             Padding="15,25,15,10"  AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All">
+                <ScrollView Orientation="Vertical" VerticalScrollBarVisibility="Always">
+                    <StackLayout Orientation="Vertical" Padding="5" Margin="0" Spacing="20">
+                        <StackLayout BackgroundColor="#FFFFFF" Spacing="10" Padding="0" Margin="0">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="0" Padding="0" Margin="0">
+                                <StackLayout HorizontalOptions="FillAndExpand"  Spacing="0">
+                                    <Label Text="{Binding LocationParkingLotName}" Style="{StaticResource lblSemiBold14BlackStl}"></Label>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="5" Padding="0" Margin="0">
+                                        <ffSvg:SvgCachedImage BackgroundColor="Transparent" HeightRequest="8" WidthRequest="8" VerticalOptions="Center"
+                                            Source="resource://ParkHyderabad.Resources.addressicon.svg"/>
+                                        <Label Text="{Binding Address}" Style="{StaticResource lblSemiBold10GreyStl}"></Label>
+                                    </StackLayout>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" VerticalOptions="Center" Spacing="10">
+                                    <ffSvg:SvgCachedImage BackgroundColor="Transparent" HeightRequest="25" WidthRequest="25"
+                                                  Source="resource://ParkHyderabad.Resources.favoritiesicon.svg"/>
+                                    <ffSvg:SvgCachedImage BackgroundColor="Transparent" HeightRequest="25" WidthRequest="25" 
+                                                            Source="resource://ParkHyderabad.Resources.shareicon.svg"/>
+                                </StackLayout>
+                            </StackLayout>
+                            <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Always" HorizontalOptions="FillAndExpand">
+                                <StackLayout Orientation="Horizontal" Spacing="5" Padding="0" Margin="0">
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                                        <Label x:Name="lblHourlyPrice" Style="{StaticResource lblBold16BlueStl}"/>
+                                    </StackLayout>
+                                    <BoxView HeightRequest="10" VerticalOptions="Fill" WidthRequest="1" Color="#a3a3a3"/>
+                                    <StackLayout Orientation="Horizontal" Spacing="8">
+                                        <Label Text="Spots left" VerticalOptions="Center" Style="{StaticResource lblSemiBold12BlackStl}"></Label>
+                                        <StackLayout Orientation="Horizontal" Spacing="5">
+                                            <ffSvg:SvgCachedImage x:Name="imgVehicle" BackgroundColor="Transparent" HeightRequest="30" WidthRequest="15" 
+                                              VerticalOptions="Center" Source="resource://ParkHyderabad.Resources.bike_green_spots.svg"/>
+                                            <Label Text="{Binding TwoWheelerCount}" VerticalOptions="Center" Style="{StaticResource lblBold12GreenStl}"></Label>
+                                        </StackLayout>                                        
+                                    </StackLayout>
+                                    <BoxView HeightRequest="10" VerticalOptions="Fill" WidthRequest="1" Color="#a3a3a3"/>
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                                        <Label Text="{Binding Distance}" Style="{StaticResource lblBold10BlueStl}"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ScrollView>
+                            <BoxView Color="#D4D5D9" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0"/>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="15" BackgroundColor="Transparent">
+                                <ffSvg:SvgCachedImage Aspect="AspectFit" Margin="0" BackgroundColor="Transparent" HeightRequest="20" WidthRequest="20" VerticalOptions="Center"
+                                      Source="{Binding DisabledParking}"/>
+                                <ffSvg:SvgCachedImage Aspect="AspectFit" Margin="0" BackgroundColor="Transparent" HeightRequest="20" WidthRequest="20" VerticalOptions="Center"
+                                      Source="{Binding EvCharging}"/>
+                                <ffSvg:SvgCachedImage Aspect="AspectFit" Margin="0" BackgroundColor="Transparent" HeightRequest="20" WidthRequest="20" VerticalOptions="Center"
+                                      Source="{Binding CoveredParking}"/>
+                                <ffSvg:SvgCachedImage Aspect="AspectFit" Margin="0" BackgroundColor="Transparent" HeightRequest="20" WidthRequest="20" VerticalOptions="Center"
+                                      Source="{Binding BikeWash}"/>
+                                <ffSvg:SvgCachedImage Aspect="AspectFit" Margin="0" BackgroundColor="Transparent" HeightRequest="20" WidthRequest="20" VerticalOptions="Center"
+                                      Source="{Binding CarWash}"/>
+                                <ffSvg:SvgCachedImage Aspect="AspectFit" Margin="0" BackgroundColor="Transparent" HeightRequest="20" WidthRequest="20" VerticalOptions="Center"
+                                      Source="{Binding Mechanic}"/>
+                            </StackLayout>
+                            <ScrollView Orientation="Horizontal" HorizontalOptions="FillAndExpand" HorizontalScrollBarVisibility="Always">
+                                <StackLayout Orientation="Horizontal" Spacing="10">
+                                    <StackLayout x:Name="stkLotImages" Orientation="Horizontal" Spacing="10">
+                                        <Image Source="{Binding LotImageName}" Aspect="AspectFill" HeightRequest="100" WidthRequest="100"></Image>
+                                        <Image Source="{Binding LotImageName2}" Aspect="AspectFill" HeightRequest="100" WidthRequest="100"></Image>
+                                        <Image Source="{Binding LotImageName3}" Aspect="AspectFill" HeightRequest="100" WidthRequest="100"></Image>
+                                    </StackLayout>                                    
+                                </StackLayout>
+                            </ScrollView>
+                        </StackLayout>
+                        <Frame HasShadow="False" CornerRadius="50" BackgroundColor="#1976d3" Padding="5" Margin="0,5,0,1">
+                            <StackLayout Padding="4" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                <Label Text="{Binding LotOpenCloseTime}" HorizontalOptions="CenterAndExpand" Style="{StaticResource lblSemiBold16WhiteStl}"></Label>
+                            </StackLayout>
+                        </Frame>
+                        <StackLayout Orientation="Vertical" Spacing="10">                          
+                            <StackLayout x:Name="stkTiming" Spacing="15">
+                                <StackLayout x:Name="stkChoosePark" Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                                    <Label Text="Parking hours" Style="{StaticResource lblSemiBold12GreyStl}" />
+                                </StackLayout>
+                                <StackLayout x:Name="gridTiming" Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Button x:Name="btnOne" Text="1" BackgroundColor="#1976d3" TextColor="#FFFFFF" Style="{StaticResource BtnHourStl}" Clicked="btn_OneClicked" />
+                                        <Button x:Name="btnTwo" Text="2" Style="{StaticResource BtnHourStl}" Clicked="btn_TwoClicked" />
+                                        <Button x:Name="btnThree" Text="3" Style="{StaticResource BtnHourStl}" Clicked="btn_ThreeClicked" />
+                                        <Button x:Name="btnFour" Text="4" Style="{StaticResource BtnHourStl}" Clicked="btn_FourClicked" />
+                                        <Button x:Name="btnFive" Text="5" Style="{StaticResource BtnHourStl}" Clicked="btn_FiveClicked" />
+                                        <Button x:Name="btnSix" Text="6" Style="{StaticResource BtnHourStl}" Clicked="btn_SixClicked" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                                        <Button x:Name="btnFullDay" Padding="0" Text="Full Day" CornerRadius="50" WidthRequest="125" HeightRequest="45" Style="{StaticResource BtnHourStl}" Clicked="btn_FullDayClicked" />
+                                    </StackLayout>
+                                </StackLayout>
+                                <!--<ScrollView Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                <StackLayout x:Name="gridTiming" Orientation="Horizontal">                                    
+                                    <Button x:Name="btnTwo" Text="2 Hr" BackgroundColor="#1976d3" TextColor="#FFFFFF" Style="{StaticResource BtnHourStl}" Clicked="btn_TwoClicked" />
+                                    <Button x:Name="btnThree" Text="3 Hr" Style="{StaticResource BtnHourStl}" Clicked="btn_ThreeClicked" />
+                                    <Button x:Name="btnFour" Text="4 Hr" Style="{StaticResource BtnHourStl}" Clicked="btn_FourClicked" />
+                                    <Button x:Name="btnFive" Text="5 Hr" Style="{StaticResource BtnHourStl}" Clicked="btn_FiveClicked" />
+                                    <Button x:Name="btnSix" Text="6 Hr" Style="{StaticResource BtnHourStl}" Clicked="btn_SixClicked" />
+                                    <Button x:Name="btnFullDay" Padding="0" Text="Full Day" CornerRadius="50" WidthRequest="125" HeightRequest="15" Style="{StaticResource BtnHourStl}" Clicked="btn_FullDayClicked" />                                                                                                                
+                                </StackLayout>
+                                </ScrollView>-->
+                            </StackLayout>
+                            <StackLayout VerticalOptions="End" Spacing="10" Padding="0,10,0,0" Margin="0">
+                                <StackLayout x:Name="stkExpiry" Orientation="Horizontal" HorizontalOptions="Center" Spacing="5">
+                                    <ffSvg:SvgCachedImage Margin="0,0,0,0" BackgroundColor="Transparent" HeightRequest="15" WidthRequest="15" VerticalOptions="Center"
+                                        Source="resource://ParkHyderabad.Resources.infoicon.svg">
+                                    </ffSvg:SvgCachedImage>
+                                    <Label Text="Spot expires at" Style="{StaticResource lblSemiBold12GreyStl}" />
+                                    <Label Text="01:10 pm" x:Name="lblExpiryMessage" Style="{StaticResource lblBold12GreenStl}" />
+                                </StackLayout>
+                                <BoxView Color="#010101" HeightRequest="1" Margin="0"></BoxView>
+                                <StackLayout Orientation="Horizontal" Spacing="15" Padding="0,5,0,0" Margin="0">
+                                    <StackLayout x:Name="stkPrice" Orientation="Vertical" HorizontalOptions="Center" Padding="0,5,0,5" Spacing="0">
+                                        <StackLayout Orientation="Vertical" Padding="0">
+                                            <Label Text="Parking Fee" Style="{StaticResource lblSemiBold12GreyStl}"></Label>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" Spacing="0" HorizontalOptions="CenterAndExpand">
+                                            <Label>
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Text="₹" TextColor="#2ECC71" FontFamily="MontserratBold.ttf#MontserratBold" FontSize="20" />
+                                                        <Span x:Name="lblParkingFee" Text="20.00" TextColor="#2ECC71" FontFamily="MontserratBold.ttf#MontserratBold" FontSize="20" />
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                        </StackLayout>
+                                    </StackLayout>
+                                    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Padding="0" Margin="0">
+                                        <Button x:Name="btnPay" Text="Select payment method" Style="{StaticResource btnBlueStl}" 
+                                            Clicked="btn_PayClicked" HorizontalOptions="FillAndExpand" VerticalOptions="Center" />
+                                        <Button IsVisible="False" x:Name="btnCheckIn" Text="Check In" Style="{StaticResource btnBlueStl}" 
+                                            Clicked="btn_CheckInClicked" HorizontalOptions="FillAndExpand" VerticalOptions="Center" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </ScrollView>
+            </Frame>
+            <ContentView x:Name="StklauoutactivityIndicator" BackgroundColor="Transparent"  IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout Orientation="Vertical" BackgroundColor="Transparent" HorizontalOptions="Center" VerticalOptions="Center">
+                    <ActivityIndicator  x:Name="activity" IsEnabled="True" IsVisible="False" IsRunning="False" HeightRequest="80" Color="#010101" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></ActivityIndicator>
+                    <Label x:Name="lblLoadingMsg" Text="Loading..."  Style="{StaticResource LblBoldBlackStl}" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand"></Label>
+                </StackLayout>
+            </ContentView>
+        </AbsoluteLayout>
+    </StackLayout>
+</ContentPage>

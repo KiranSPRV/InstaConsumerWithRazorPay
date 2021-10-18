@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"            
+             xmlns:local="clr-namespace:ParkHyderabad.Helper"
+             x:Class="ParkHyderabad.VerifyOTP"         
+             NavigationPage.HasBackButton="True">
+    <NavigationPage.TitleView BackgroundColor="#1976d3" TextColour="#FFFFFF">
+        <Label Text="Verification"  Style="{StaticResource LblBoldPageTitleStl}"  Margin="0,0,70,0"/>
+    </NavigationPage.TitleView>
+    <StackLayout BackgroundColor="#1976d3">
+        <AbsoluteLayout x:Name="absLayout">
+            <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" Margin="15">
+                <ScrollView>
+                    <StackLayout>
+                        <StackLayout Spacing="10" Padding="0,20,0,20">
+                            <Label x:Name="otp" Text="OTP Verification" Style="{StaticResource LblBoldExtraLargeStl}"></Label>
+                            <Label x:Name="lblDisplayText" Text="Please enter OTP sent to" CharacterSpacing="0.5"
+                        XAlign="Center" Margin="0" Style="{StaticResource LblRegularGreyedStl}"></Label>
+                            <!--<Label x:Name="lblDisplayText" CharacterSpacing="0.5"
+                        XAlign="Center"  Margin="0" Style="{StaticResource LblRegularGreyedStl}"></Label>-->
+                        </StackLayout>
+                        <Grid Padding="15,30,15,20" RowSpacing="30">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <local:CustomEntry Keyboard="Numeric" Style="{StaticResource EntryRegularStl}" x:Name="OTP1" Grid.Row="0" Grid.Column="0"
+                            HorizontalTextAlignment="Center" TabIndex="0" MaxLength="1" TextColor="White" Margin="1,0,1,0"
+                            TextChanged="OTP1_TextChanged"/>
+                            <local:CustomEntry Keyboard="Numeric" Style="{StaticResource EntryRegularStl}" x:Name="OTP2" Grid.Row="0" Grid.Column="1" 
+                            HorizontalTextAlignment="Center" TabIndex="1" MaxLength="1" TextColor="White" Margin="1,0,1,0"
+                            TextChanged="OTP2_TextChanged"/>
+                            <local:CustomEntry Keyboard="Numeric" Style="{StaticResource EntryRegularStl}" x:Name="OTP3" Grid.Row="0" Grid.Column="2"                           
+                            HorizontalTextAlignment="Center" TabIndex="2" MaxLength="1" TextColor="White" Margin="1,0,1,0"
+                            TextChanged="OTP3_TextChanged"/>
+                            <local:CustomEntry Keyboard="Numeric" Style="{StaticResource EntryRegularStl}" x:Name="OTP4" Grid.Row="0" Grid.Column="3" 
+                            HorizontalTextAlignment="Center" TabIndex="3" MaxLength="1" TextColor="White" Margin="1,0,1,0"/>
+                        </Grid>
+                        <StackLayout>
+                            <StackLayout  Orientation="Vertical"  VerticalOptions="CenterAndExpand" Spacing="25" Padding="20,30,20,30">
+                                <Button x:Name="btnVerify" Text="Verify" Style="{StaticResource BtnSubmitStl}" Clicked="btn_VerifyOTPClicked"/>
+                                <StackLayout  Orientation="Horizontal"  VerticalOptions="CenterAndExpand" Spacing="50" Padding="30,0,0,0">
+                                    <Label x:Name="NotReceived" Text="Didn't receive OTP?" XAlign="Center" Style="{StaticResource LblRegularGreyedStl}"></Label>
+                                    <StackLayout>
+                                        <StackLayout.GestureRecognizers >
+                                            <TapGestureRecognizer x:Name="stkMyVehicle" Tapped="skt_ResendOTPClicked" />
+                                        </StackLayout.GestureRecognizers>
+                                        <Label x:Name="Resend" Text="Resend" XAlign="Center" Style="{StaticResource LblSemiBoldBlackStl}"></Label>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+            <ContentView x:Name="StklauoutactivityIndicator" BackgroundColor="Transparent"  IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout Orientation="Vertical" BackgroundColor="Transparent" HorizontalOptions="Center" VerticalOptions="Center">
+                    <ActivityIndicator  x:Name="activity" IsEnabled="True" IsVisible="False" IsRunning="False" HeightRequest="80" Color="#010101" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></ActivityIndicator>
+                    <Label x:Name="lblLoadingMsg" Text="Loading..."  Style="{StaticResource LblBoldBlackStl}" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand"></Label>
+                </StackLayout>
+            </ContentView>
+        </AbsoluteLayout>
+    </StackLayout>
+</ContentPage>
